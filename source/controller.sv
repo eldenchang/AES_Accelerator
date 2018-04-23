@@ -14,23 +14,22 @@ module controller(
 	input wire data_type, // from AHB_lite interface, for controller to know if the incoming data is new key value or video dara
 	input wire enc_dec, // encrypt or decrypt
 	input wire chg_key_done, // from GenKey, for conroller to know(and also forward to interface) that the key have been stored
-	input wire data_output, //from AESctr, for controller to know there is a new packets of data just finished being encrypting
+	input wire enc_done, //from AESctr, for controller to know there is a new packets of data just finished being encrypting
 	//intput wire shift_enable, // from AESctr
 
+	output reg opt_mode, // opt mode indicate if the job is encrypt(0) or decrypt(1), 
 	output reg load_key, //to GenKey and preAddKey, to start loading keys from rx_sr
 	output reg aes_enable, //to AESctr, to start the encryption proccess
 	output reg ahb_mode, //to AHB_lite interface, tell AHB interface input / output data
 	output reg done_chg_key, // to AHB_lite interface, to let interface forward the done_chg_key signal to CPU
-	output reg fetch, // to AHB_lite interface to let interface to fetch data from SRAM
+	output reg abh_shift_en, // to AHB_lite interface to let interface shift in/out data
 	output reg preaddkey,
 	output reg aes_load,
-	output wire data_flag //indicating that the data should be shifted into pipeline
 	);
 
 	// typedef enum bit [3:0]{IDLE, START, CHG_KEY, ENCRYP_AND_FETCH, WAIT_ENCRYP, ENCRYP_AND_WRITE, PREADDKEY, LOAD, ERROR} stateType;
 	typedef enum bit [3:0]{IDLE, START, CHG_KEY, 
-						PRE_ADD_KEY, ENC, ENC_AND_WRITE, ENCRYP_AND_FETCH, 
-						DEC, DEC_AND_WRITE, DEC_AND_FETCH, ERROR} stateType;
+						ENC, ENC_AND_FETCH, WAIT, WRITE, ERROR} stateType;
 
 	stateType state;
 	stateType n_state;
@@ -39,10 +38,10 @@ module controller(
 	reg rst_switch_state, rst_sr_ct;
 	wire switch_state, shift_ct_en;
 	flex_counter counter(.clk(clk), .n_rst(n_rst), .count_enable(1'b1), .rollover_val(4'd2), .clear(rst_switch_state), .count_out(ct));
-	flex_counter SR_counter(.clk(clk), .n_rst(n_rst), .count_enable(shift_ct_en), .rollover_val(4'd4), .clear(rst_switch_state), .count_out(sr_ct));
+	flex_counter SR_counter(.clk(clk), .n_rst(n_rst), .count_enable(shift_ct_en), .rollover_val(4'd4), .clear(rst_sr_ct), .count_out(sr_ct));
 
 	assign switch_state = (ct == 1);
-	assign data_flag = data_type;
+	assign opt_mode = enc_dec;
 
 	always_ff @(posedge clk or negedge n_rst) begin
 		if(~n_rst) begin
@@ -57,32 +56,11 @@ module controller(
 		case(state)
 			IDLE: n_state = start ? START : IDLE;
 			//START: n_state = (!data_type && data_received) ? CHK_ADDR : START;
-			START: sr_ct ? (data_type ? CHG_KEY : (enc_dec ? PRE_ADD_KEY : DEC_AND_WRITE)) : START; // begin
-				// if(data_type == 0) begin
-				// 	n_state = data_received ? CHG_KEY : START;
-				// end
-				// else if(data_type == 1) begin
-				// 		n_state = data_received ? ENCRYP_AND_FETCH : START;
-				// end
-			// end
-			CHG_KEY: n_state = IDLE;
-			LOAD: begin
-				if(switch_state) begin
-					if (!data_output) begin
-						n_state = pipeline_full ? WAIT_ENCRYP : ENCRYP_AND_FETCH;
-					end
-					else begin
-						n_state = ENCRYP_AND_WRITE;
-					end
-				end
-				else begin
-					n_state = LOAD;
-				end
-			end
-			ENCRYP_AND_FETCH: n_state = PREADDKEY;
-			PREADDKEY: n_state = LOAD; 
-			WAIT_ENCRYP: n_state = data_output ? ENCRYP_AND_WRITE : WAIT_ENCRYP;
-			ENCRYP_AND_WRITE: n_state = pipeline_full ? ENCRYP_AND_WRITE : ENCRYP_AND_FETCH;
+			START: sr_ct ? (data_type ? CHG_KEY : ENC_AND_FETCH) : START; // begin
+			CHG_KEY: n_state = chg_key_done ? IDLE : CHG_KEY;
+			ENC: n_state = ENC_AND_FETCH;
+			ENC_AND_FETCH: n_state = sr_ct ? WAIT : ENC_AND_FETCH;
+			WAIT: n_state = enc_done ? WRITE : WAIT;
 			ERROR: n_state = start ? IDLE : ERROR;
 		endcase // state
 	end
@@ -95,11 +73,11 @@ module controller(
 		done_chg_key = 0;
 		preaddkey = 0;
 		rst_switch_state = 0;
+		rst_sr_ct = 0;
 		aes_load = 0;
-		
-
+		abh_shift_en = 0;	
 		case(state)
-			IDLE: rst = 1; //reset the shift register counter
+			IDLE: rst_sr_ct = 1; //reset the shift register counter
 			START: begin
 				//rx_enable = 1;
 				if(data_type == 0) begin
@@ -112,27 +90,22 @@ module controller(
 				//rx_enable = 1;
 				load_key = 1;
 			end
+			ENC: begin
+				rst_sr_ct = 1;
+			end
 			ENCRYP_AND_FETCH: begin 
 				//rx_enable = 1;
 				//fetch = 1;
-				preaddkey = 1;
-				aes_enable = 1;
-				
+				shift_ct_en = 1;
+				abh_mode = 0;
+				abh_shift_en = 1;
 			end
-			LOAD: begin // waiting for AESctr to load data 
-				//fetch = 1;
-				aes_enable = 1;
-				aes_load = 1;
+			WAIT: begin
+
 			end
-			PREADDKEY: begin //lO
-				aes_enable = 1;
-				fetch = 1;
-				rst_switch_state = 1;
-			end
-			ENCRYP_AND_WRITE: begin
-				aes_enable = 1;
-			end
-			WAIT_ENCRYP: aes_enable = 1;
+			WRITE: begin
+				abh_mode = 1;
+				abh_shift_en = 1;	
 		endcase // state
 	end
 endmodule // controller		
