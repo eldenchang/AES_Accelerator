@@ -91,6 +91,7 @@ module controller(
 				load_key = 1;
 			end
 			ENC: begin
+				aes_enable = 1;
 				rst_sr_ct = 1;
 			end
 			ENCRYP_AND_FETCH: begin 
