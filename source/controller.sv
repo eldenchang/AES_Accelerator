@@ -28,7 +28,7 @@ module controller(
 	);
 
 	// typedef enum bit [3:0]{IDLE, START, CHG_KEY, ENCRYP_AND_FETCH, WAIT_ENCRYP, ENCRYP_AND_WRITE, PREADDKEY, LOAD, ERROR} stateType;
-	typedef enum bit [3:0]{IDLE, START, CHG_KEY, PRE_ADD_KEY, ENC, ENC_AND_WRITE, ENCRYP_AND_FETCH, ERROR} stateType;
+	typedef enum bit [3:0]{IDLE, START, CHG_KEY, PRE_ADD_KEY, ENC, ENC_AND_WRITE, ENCRYP_AND_FETCH, DEC, DEC_AND_WRITE, DEC_AND_FETCH, ERROR} stateType;
 
 	stateType state;
 	stateType n_state;
