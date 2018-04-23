@@ -24,7 +24,7 @@ module controller(
 	output reg done_chg_key, // to AHB_lite interface, to let interface forward the done_chg_key signal to CPU
 	output reg abh_shift_en, // to AHB_lite interface to let interface shift in/out data
 	output reg preaddkey,
-	output reg aes_load,
+	output reg aes_load
 	);
 
 	// typedef enum bit [3:0]{IDLE, START, CHG_KEY, ENCRYP_AND_FETCH, WAIT_ENCRYP, ENCRYP_AND_WRITE, PREADDKEY, LOAD, ERROR} stateType;
