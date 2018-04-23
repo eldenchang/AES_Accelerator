@@ -36,7 +36,8 @@ module controller(
 
 	wire [3:0] ct, sr_ct;
 	reg rst_switch_state, rst_sr_ct;
-	wire switch_state, shift_ct_en;
+	wire switch_state;
+	reg shift_ct_en;
 	flex_counter counter(.clk(clk), .n_rst(n_rst), .count_enable(1'b1), .rollover_val(4'd2), .clear(rst_switch_state), .count_out(ct));
 	flex_counter SR_counter(.clk(clk), .n_rst(n_rst), .count_enable(shift_ct_en), .rollover_val(4'd4), .clear(rst_sr_ct), .count_out(sr_ct));
 
