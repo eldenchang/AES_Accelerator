@@ -55,8 +55,7 @@ module controller(
 		n_state = state;
 		case(state)
 			IDLE: n_state = start ? START : IDLE;
-			//START: n_state = (!data_type && data_received) ? CHK_ADDR : START;
-			START: sr_ct ? (data_type ? CHG_KEY : ENC_AND_FETCH) : START; // begin
+			START: n_state = sr_ct ? (data_type ? CHG_KEY : ENC_AND_FETCH) : START; // begin
 			CHG_KEY: n_state = chg_key_done ? IDLE : CHG_KEY;
 			ENC: n_state = ENC_AND_FETCH;
 			ENC_AND_FETCH: n_state = sr_ct ? WAIT : ENC_AND_FETCH;
@@ -66,7 +65,6 @@ module controller(
 	end
 
 	always_comb begin
-		fetch = 0;
 		load_key = 0;
 		aes_enable = 0;
 		ahb_mode = 0;
@@ -94,19 +92,20 @@ module controller(
 				aes_enable = 1;
 				rst_sr_ct = 1;
 			end
-			ENCRYP_AND_FETCH: begin 
+			ENC_AND_FETCH: begin 
 				//rx_enable = 1;
 				//fetch = 1;
 				shift_ct_en = 1;
-				abh_mode = 0;
-				abh_shift_en = 1;
+				ahb_mode = 0;
+				ahb_shift_en = 1;
 			end
 			WAIT: begin
 
 			end
 			WRITE: begin
-				abh_mode = 1;
-				abh_shift_en = 1;	
+				ahb_mode = 1;
+				ahb_shift_en = 1;	
+			end
 		endcase // state
 	end
 endmodule // controller		
