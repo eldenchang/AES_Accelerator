@@ -73,7 +73,7 @@ module controller(
 		rst_switch_state = 0;
 		rst_sr_ct = 0;
 		aes_load = 0;
-		abh_shift_en = 0;	
+		ahb_shift_en = 0;	
 		case(state)
 			IDLE: rst_sr_ct = 1; //reset the shift register counter
 			START: begin
