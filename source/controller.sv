@@ -22,7 +22,7 @@ module controller(
 	output reg aes_enable, //to AESctr, to start the encryption proccess
 	output reg ahb_mode, //to AHB_lite interface, tell AHB interface input / output data
 	output reg done_chg_key, // to AHB_lite interface, to let interface forward the done_chg_key signal to CPU
-	output reg abh_shift_en, // to AHB_lite interface to let interface shift in/out data
+	output reg ahb_shift_en, // to AHB_lite interface to let interface shift in/out data
 	output reg preaddkey,
 	output reg aes_load
 	);
@@ -79,7 +79,8 @@ module controller(
 			START: begin
 				//rx_enable = 1;
 				if(data_type == 0) begin
-					fetch = 1;
+					ahb_mode = 0;
+					ahb_shift_en = 1;
 				end
 				shift_ct_en = 1;
 				//load_key = 1;
