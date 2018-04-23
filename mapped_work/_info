@@ -1,0 +1,85 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/ecegrid/a/mg135/ece337/project_budget_expr
+vMixColumns
+Z1 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
+!s110 1522376949
+!i10b 1
+!s100 UbFRU[H2g[3gA^iL5infR0
+INOlb?`;lldHZZ411ln9[h3
+Z2 V`JN@9S9cnhjKRR_L]QIcM3
+!s105 MixColumns_v_unit
+S1
+R0
+w1522376944
+8mapped/MixColumns.v
+Fmapped/MixColumns.v
+L0 8
+Z3 OL;L;10.3b;59
+r1
+!s85 0
+31
+!s108 1522376949.742225
+!s107 mapped/MixColumns.v|
+!s90 -sv|-work|mapped_work|mapped/MixColumns.v|
+!i113 0
+Z4 o-sv -work mapped_work
+Z5 tCoverage 63 CoverExcludeDefault 1 CoverOpt 1 CoverShortCircuit 0
+n@mix@columns
+vSBox
+R1
+!s110 1522375084
+!i10b 1
+!s100 _B<YTYTngJLP<SaebaTmJ2
+IU8`i;e5IFK=542[<ofWGe3
+R2
+!s105 SBox_v_unit
+S1
+R0
+w1522375081
+8mapped/SBox.v
+Fmapped/SBox.v
+L0 8
+R3
+r1
+!s85 0
+31
+!s108 1522375084.889840
+!s107 mapped/SBox.v|
+!s90 -sv|-work|mapped_work|mapped/SBox.v|
+!i113 0
+R4
+R5
+n@s@box
+vSubstitute
+R1
+!s110 1522371852
+!i10b 1
+!s100 lmWE:UUWM90V_Mkkko?i82
+Im2Tfb^1]GA@onV;7BeO<L3
+R2
+!s105 Substitute_v_unit
+S1
+R0
+w1522371848
+8mapped/Substitute.v
+Fmapped/Substitute.v
+L0 8
+R3
+r1
+!s85 0
+31
+!s108 1522371852.234023
+!s107 mapped/Substitute.v|
+!s90 -sv|-work|mapped_work|mapped/Substitute.v|
+!i113 0
+R4
+R5
+n@substitute

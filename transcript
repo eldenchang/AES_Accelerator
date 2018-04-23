@@ -1,0 +1,43 @@
+# //  Questa Sim-64
+# //  Version 10.3b linux_x86_64 May 29 2014
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim -Lf /home/ecegrid/a/ece337/Course_Prod/IP_Libs/Lab_IP_Lib/Vsim -L /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work -L /home/ecegrid/a/ece337/Class0.5u/GOLD_LIB "+no_glitch_msg" -coverage -novopt -i -t ps -do "source ./scripts/image_waves.do; run 240ms" source_work.tb_fir_image 
+# Start time: 05:08:18 on Feb 16,2018
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Refreshing /home/ecegrid/a/mg135/ece337/Lab5/source_work.tb_fir_image
+# Loading sv_std.std
+# Loading source_work.tb_fir_image
+# Loading source_work.fir_filter
+# Loading source_work.controller
+# Loading source_work.counter
+# Loading source_work.flex_counter
+# Loading /home/ecegrid/a/ece337/Course_Prod/IP_Libs/Lab_IP_Lib/Vsim.datapath
+# Loading /home/ecegrid/a/ece337/Course_Prod/IP_Libs/Lab_IP_Lib/Vsim.datapath_decode
+# Loading /home/ecegrid/a/ece337/Course_Prod/IP_Libs/Lab_IP_Lib/Vsim.alu
+# Loading /home/ecegrid/a/ece337/Course_Prod/IP_Libs/Lab_IP_Lib/Vsim.register_file
+# Loading source_work.magnitude
+# Loading source_work.sync_low
+# Loading /home/ecegrid/a/ece337/Course_Prod/IP_Libs/Lab_IP_Lib/Vsim.flex_sreg
+# ** Warning: (vsim-3017) source/counter.sv(17): [TFMPC] - Too few port connections. Expected 7, found 6.
+#         Region: /tb_fir_image/RF/CT/counter
+# ** Warning: (vsim-3722) source/counter.sv(17): [TFMPC] - Missing connection for port 'count_out'.
+# ** Warning: (vsim-3017) source/counter.sv(17): [TFMPC] - Too few port connections. Expected 7, found 6.
+#         Region: /tb_fir_image/GF/CT/counter
+# ** Warning: (vsim-3722) source/counter.sv(17): [TFMPC] - Missing connection for port 'count_out'.
+# ** Warning: (vsim-3017) source/counter.sv(17): [TFMPC] - Too few port connections. Expected 7, found 6.
+#         Region: /tb_fir_image/BF/CT/counter
+# ** Warning: (vsim-3722) source/counter.sv(17): [TFMPC] - Missing connection for port 'count_out'.
+# source ./scripts/image_waves.do
+#  run 240ms
+# Input bitmap file uses the BITMAPINFOHEADER type of DIB header
+# Break key hit
+# Simulation stop requested.
+# End time: 05:09:13 on Feb 16,2018, Elapsed time: 0:00:55
+# Errors: 0, Warnings: 7

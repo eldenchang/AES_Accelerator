@@ -1,0 +1,262 @@
+Synthesizing design: Substitute.sv
+dc_shell-t -x "source -echo do_mapping.tcl"
+                                        
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+                                        
+               Version K-2015.06-SP1 for linux64 - Jul 21, 2015 
+                                        
+                    Copyright (c) 1988 - 2015 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+# Step 1:  Read in the source file
+analyze -format sverilog -lib WORK { Substitute.sv}
+Running PRESTO HDLC
+Compiling source file ./source/Substitute.sv
+Presto compilation completed successfully.
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+Loading db file '/package/eda/synopsys/syn-K-2015.06-SP1/libraries/syn/dw_foundation.sldb'
+elaborate Substitute -lib WORK
+Loading db file '/package/eda/synopsys/syn-K-2015.06-SP1/libraries/syn/gtech.db'
+Loading db file '/package/eda/synopsys/syn-K-2015.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'osu05_stdcells'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+
+Inferred memory devices in process
+	in routine Substitute line 28 in file
+		'./source/Substitute.sv'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     input_q_reg     | Flip-flop |  100  |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'Substitute'.
+Information: Building the design 'flex_counter' instantiated from design 'Substitute' with
+	the parameters "3". (HDL-193)
+Warning: Cannot find the design 'flex_counter' in the library 'WORK'. (LBR-1)
+Information: Building the design 'SBox'. (HDL-193)
+Warning: Cannot find the design 'SBox' in the library 'WORK'. (LBR-1)
+Information: Building the design 'flexbyte_stp_sr' instantiated from design 'Substitute' with
+	the parameters "1,4,16". (HDL-193)
+Warning: Cannot find the design 'flexbyte_stp_sr' in the library 'WORK'. (LBR-1)
+Warning: Design 'Substitute' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+uniquify
+Warning: Design 'Substitute' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+# Step 2: Set design constraints
+# Uncomment below to set timing, area, power, etc. constraints
+# set_max_delay <delay> -from "<input>" -to "<output>"
+# set_max_area <area>
+# set_max_total_power <power> mW
+# Step 3: Compile the design
+compile -map_effort medium
+Warning: Design 'Substitute' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | K-2015.06-DWBB_201506.1 |     *     |
+| Licensed DW Building Blocks        | K-2015.06-DWBB_201506.1 |           |
+============================================================================
+
+
+Information: There are 40 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'Substitute'
+Warning: Cell 'U4/U1' (*GEN*12) cannot be exactly translated 1 for 1 into target library.  Ignoring set_compile_directives. (TRANS-9)
+Warning: Cell 'U5/U1' (*GEN*11) cannot be exactly translated 1 for 1 into target library.  Ignoring set_compile_directives. (TRANS-9)
+Warning: Cell 'U6/U1' (*GEN*10) cannot be exactly translated 1 for 1 into target library.  Ignoring set_compile_directives. (TRANS-9)
+Warning: Cell 'U7/U1' (*GEN*9) cannot be exactly translated 1 for 1 into target library.  Ignoring set_compile_directives. (TRANS-9)
+Information: Building the design 'flex_counter' instantiated from design 'Substitute' with
+	the parameters "3". (HDL-193)
+Warning: Cannot find the design 'flex_counter' in the library 'WORK'. (LBR-1)
+Information: Building the design 'SBox'. (HDL-193)
+Warning: Cannot find the design 'SBox' in the library 'WORK'. (LBR-1)
+Information: Building the design 'flexbyte_stp_sr' instantiated from design 'Substitute' with
+	the parameters "1,4,16". (HDL-193)
+Warning: Cannot find the design 'flexbyte_stp_sr' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'flex_counter' in 'Substitute'. (LINK-5)
+Warning: Unable to resolve reference 'SBox' in 'Substitute'. (LINK-5)
+Warning: Unable to resolve reference 'flexbyte_stp_sr' in 'Substitute'. (LINK-5)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'Substitute' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+  Structuring 'Substitute'
+  Mapping 'Substitute'
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01  288783.0      0.00       0.0       6.9                          
+    0:00:01  288783.0      0.00       0.0       6.9                          
+    0:00:01  288783.0      0.00       0.0       6.9                          
+    0:00:01  288783.0      0.00       0.0       6.9                          
+    0:00:01  288783.0      0.00       0.0       6.9                          
+    0:00:01  287991.0      0.00       0.0       6.9                          
+    0:00:01  287991.0      0.00       0.0       6.9                          
+    0:00:01  287991.0      0.00       0.0       6.9                          
+    0:00:01  287991.0      0.00       0.0       6.9                          
+    0:00:01  287991.0      0.00       0.0       6.9                          
+    0:00:01  287991.0      0.00       0.0       6.9                          
+    0:00:01  287991.0      0.00       0.0       6.9                          
+    0:00:01  287991.0      0.00       0.0       6.9                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01  287991.0      0.00       0.0       6.9                          
+    0:00:01  287991.0      0.00       0.0       6.9                          
+    0:00:01  287991.0      0.00       0.0       6.9                          
+
+
+  Beginning Design Rule Fixing  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01  287991.0      0.00       0.0       6.9                          
+    0:00:01  289287.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01  289287.0      0.00       0.0       0.0                          
+    0:00:01  289287.0      0.00       0.0       0.0                          
+    0:00:01  289143.0      0.00       0.0       0.0                          
+    0:00:01  289143.0      0.00       0.0       0.0                          
+    0:00:01  289143.0      0.00       0.0       0.0                          
+    0:00:01  289143.0      0.00       0.0       0.0                          
+    0:00:01  289143.0      0.00       0.0       0.0                          
+    0:00:01  289143.0      0.00       0.0       0.0                          
+    0:00:01  289143.0      0.00       0.0       0.0                          
+    0:00:01  289143.0      0.00       0.0       0.0                          
+    0:00:01  289143.0      0.00       0.0       0.0                          
+    0:00:01  289143.0      0.00       0.0       0.0                          
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+# Step 4: Output reports
+report_timing -path full -delay max -max_paths 1 -nworst 1 > reports/Substitute.rep
+report_area >> reports/Substitute.rep
+report_power -hier >> reports/Substitute.rep
+# Step 5: Output final VHDL and Verilog files
+write_file -format verilog -hierarchy -output "mapped/Substitute.v"
+Warning: Design 'Substitute' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Writing verilog file '/home/ecegrid/a/mg135/ece337/project_budget_expr/mapped/Substitute.v'.
+echo "\nScript Done\n"
+
+Script Done
+
+echo "\nChecking Design\n"
+
+Checking Design
+
+check_design
+Warning: Design 'Substitute' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06-SP1
+Date:        Thu Mar 29 21:04:08 2018
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      2
+    Multiply driven inputs (LINT-6)                                 2
+
+Nets                                                                2
+    Multiply driven net with constant driver (LINT-54)              2
+
+Tristate                                                           36
+    A tristate bus has a non tri-state driver (LINT-34)            36
+--------------------------------------------------------------------------------
+
+Warning: In design 'Substitute', input port 'clk' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'Substitute', input port 'n_rst' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'Substitute', three-state bus '_2_net_' has non three-state driver 'C619/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input4[0]' has non three-state driver 'U639/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input4[1]' has non three-state driver 'U638/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input4[2]' has non three-state driver 'U637/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input4[3]' has non three-state driver 'U636/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input4[4]' has non three-state driver 'U635/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input4[5]' has non three-state driver 'U634/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input4[6]' has non three-state driver 'U633/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input4[7]' has non three-state driver 'U632/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input3[0]' has non three-state driver 'U631/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input3[1]' has non three-state driver 'U630/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input3[2]' has non three-state driver 'U629/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input3[3]' has non three-state driver 'U628/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input3[4]' has non three-state driver 'U627/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input3[5]' has non three-state driver 'U626/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input3[6]' has non three-state driver 'U625/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input3[7]' has non three-state driver 'U624/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input2[0]' has non three-state driver 'U623/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input2[1]' has non three-state driver 'U622/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input2[2]' has non three-state driver 'U621/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input2[3]' has non three-state driver 'U620/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input2[4]' has non three-state driver 'U619/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input2[5]' has non three-state driver 'U618/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input2[6]' has non three-state driver 'U617/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input2[7]' has non three-state driver 'U616/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input1[0]' has non three-state driver 'U615/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input1[1]' has non three-state driver 'U614/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input1[2]' has non three-state driver 'U613/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input1[3]' has non three-state driver 'U612/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input1[4]' has non three-state driver 'U611/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input1[5]' has non three-state driver 'U610/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input1[6]' has non three-state driver 'U609/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus 'input1[7]' has non three-state driver 'U608/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus '_0_net_' has non three-state driver 'C617/Y'. (LINT-34)
+Warning: In design 'Substitute', three-state bus '*Logic0*' has non three-state driver 'U2/**logic_0**'. (LINT-34)
+Warning: In design 'Substitute', three-state bus '*Logic1*' has non three-state driver 'U1/**logic_1**'. (LINT-34)
+Warning: In design 'Substitute', multiply-driven net '*Logic0*' is driven by constant 0. (LINT-54)
+Warning: In design 'Substitute', multiply-driven net '*Logic1*' is driven by constant 1. (LINT-54)
+quit
+
+Thank you...
+Done
+
+

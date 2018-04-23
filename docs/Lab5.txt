@@ -1,0 +1,18 @@
+Question 1)
+	
+	For 2 clk cycles
+
+	Data must be valid for 2 clk cycles.
+
+Question 2) 
+	
+	The filtered image only shown a range of frequencies of the test image.It is filtering out the high freq values being a HPF.
+
+Question 3)
+	
+	$fopen(file, rw_mode);
+	$fscanf(file, file_format_specifier, data_source)
+
+Question 4)
+
+	%b, %c, %d, %e, %f, %g, %h, %l, %m, %o, %s, %t, %u, %v, %z	

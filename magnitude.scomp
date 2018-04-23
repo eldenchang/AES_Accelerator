@@ -1,0 +1,9 @@
+QuestaSim-64 vlog 10.3b Compiler 2014.05 May 29 2014
+Start time: 05:02:00 on Feb 16,2018
+vlog -sv -work source_work source/magnitude.sv 
+-- Compiling module magnitude
+
+Top level modules:
+	magnitude
+End time: 05:02:00 on Feb 16,2018, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
