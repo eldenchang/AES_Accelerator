@@ -38,7 +38,7 @@ module GenRoundKeys_core
 
 	always_comb begin
 		if(cur_round == 0) begin
-			cur_ff_q = orig_ff_q;
+			orig_ff_q = orig_ff_q;
 		end
 		else begin
 			cur_ff_q = KeySchedule[(127 * cur_round - 127) +: 128];
