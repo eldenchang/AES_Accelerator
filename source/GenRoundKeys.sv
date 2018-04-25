@@ -1,4 +1,4 @@
-module GenRoundKeys_core
+module GenRoundKeys
 	(
 		input wire clk,
 		input wire n_rst,
