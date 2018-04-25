@@ -87,7 +87,7 @@ module GenRoundKeys
 	always_comb
 	begin: CUR_NEXT_STATE
 	change_key = 0;
-		if (round_ct >= 1 && change_key == 1 && round_ct <= 10) //if round is invalid, wait until a valid one arrives. keep old key round until then.
+		if (round_ct >= 1 && chg_key == 1 && round_ct <= 10) //if round is invalid, wait until a valid one arrives. keep old key round until then.
 		begin
 			input1 = cur_ff_q[23:16];
 			input2 = cur_ff_q[15:8];
@@ -101,7 +101,7 @@ module GenRoundKeys
 			cur_ff_d[31:0] = cur_ff_d[63:32] ^ cur_ff_q[31:0];
 	
 		end
-		else if (round_ct == 0 && change_key == 1)
+		else if (round_ct == 0 && chg_key == 1)
 		begin
 			input1 = cur_ff_q[23:16];
 			input2 = cur_ff_q[15:8];
