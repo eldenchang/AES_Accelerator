@@ -1,4 +1,4 @@
-module SBox
+module InvSBox
 (
 	input wire [7:0] data_in,
 	output wire [7:0] data_out
