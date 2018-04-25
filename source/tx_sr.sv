@@ -12,9 +12,9 @@ module tx_sr
 	input wire [127:0] data_in,
 	input wire shift_enable,
 	input wire load_enable,
-	output wire [63:0] data_out
+	output wire [31:0] data_out
 );
 
-flexbyte_pts_sr #(.NUM_BYTES_IN(16), .NUM_BYTES_OUT(8)) pts(.clk(clk), .n_rst(n_rst), .shift_enable(shift_enable), .load_enable(load_enable), .data_in(data_in), .data_out(data_out));
+flexbyte_pts_sr #(.NUM_BYTES_IN(16), .NUM_BYTES_OUT(4)) pts(.clk(clk), .n_rst(n_rst), .shift_enable(shift_enable), .load_enable(load_enable), .data_in(data_in), .data_out(data_out));
 
 endmodule // tx_sr
