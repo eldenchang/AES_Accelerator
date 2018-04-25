@@ -12,8 +12,7 @@ module controller(
 	output reg change_key_start, //to GenKey and preAddKey, to start loading keys from rx_sr
 	output reg aes_enable, //to AESctr, to start the encryption proccess
 	output reg ahb_mode, //to AHB_lite interface, tell AHB interface input / output data 0== read from SRAm, 1==Write to SRAM
-	output reg ahb_shift_en, // to AHB_lite interface to let interface shift in/out data
-	output reg aes_start
+	output reg ahb_shift_en
 	);
 
 	typedef enum bit [2:0]{IDLE, INITIAL_READ, INITIAL_WAIT, WAIT_CYCLE_START, READ, WAIT_FOR_AES, WRITE, CHNGE_KEY} stateType;
@@ -55,8 +54,7 @@ module controller(
 		change_key_start = 0;
 		aes_enable = 0;
 		ahb_mode = 0;
-		ahb_shift_en = 0;	
-		aes_start = 0;
+		ahb_shift_en = 0;
 		rst_switch_state = 1;
 		case(state)
 			IDLE: 
