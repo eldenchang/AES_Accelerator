@@ -74,7 +74,7 @@ module GenRoundKeys_core
 	
 	always_comb
 	begin: ORIG_NEXT_STATE
-		if (key_load == 1)
+		if (chg_key == 1)
 		begin
 			orig_ff_d = rx_key;
 		end
