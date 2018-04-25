@@ -6,6 +6,7 @@ localparam CLOCK_PERIOD = 10;
 reg tb_clk;
 reg tb_n_rst;
 reg tb_key_load;
+reg tb_change_key_done;
 reg [127:0] tb_rx_key = 'h68656c6c6f3030303030303030303030;
 reg [3:0] tb_cur_round;
 reg [127:0] tb_cur_key;
@@ -23,7 +24,7 @@ reg [127:0] key_9 = 'h6ca93273598a3c2f038759c18746bb83;
 reg [127:0] key_10 = 'h0043de6459c9e24b5a4ebb8add080009;
 
 
-GenRoundKeys DUT(.clk(tb_clk), .n_rst(tb_n_rst), .key_load(tb_key_load), .rx_key(tb_rx_key), .cur_round(tb_cur_round), .cur_key(tb_cur_key), .orig_key(tb_orig_key));
+GenRoundKeys DUT(.clk(tb_clk), .n_rst(tb_n_rst), .chg_key(tb_key_load), .rx_key(tb_rx_key), .cur_round(tb_cur_round), .cur_key(tb_cur_key), .orig_key(tb_orig_key), .change_key_done(tb_change_key_done));
 
 always
 begin: CLOCK_GEN
@@ -47,7 +48,7 @@ begin
 	
 	tb_n_rst = 1;
 	tb_key_load = 1;
-	@(posedge tb_clk);
+	@(posedge change_key_done);
 	
 	//generate 1st round
 	
