@@ -48,7 +48,7 @@ begin
 	
 	tb_n_rst = 1;
 	tb_key_load = 1;
-	@(posedge change_key_done);
+	@(posedge tb_change_key_done);
 	
 	//generate 1st round
 	
