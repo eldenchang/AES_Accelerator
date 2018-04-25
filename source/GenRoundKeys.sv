@@ -38,10 +38,10 @@ module GenRoundKeys_core
 
 	always_comb begin
 		if(cur_round == 0) begin
-			cur_key = orig_ff_q;
+			cur_ff_q = orig_ff_q;
 		end
 		else begin
-			cur_key = KeySchedule[(127 * cur_key) : (127 * cur_round - 127)];
+			cur_ff_q = KeySchedule[(127 * cur_round) : (127 * cur_round - 127)];
 		end
 	end
 
@@ -58,7 +58,6 @@ module GenRoundKeys_core
 	begin: FF_LOADING
 		if (n_rst == 0)
 		begin
-			change_key = 0;
 			orig_ff_q <= '0;
 			KeySchedule<= '0;
 			round_q <= '0;
@@ -87,6 +86,7 @@ module GenRoundKeys_core
 	
 	always_comb
 	begin: CUR_NEXT_STATE
+	change_key = 0;
 		if (round_ct >= 1 && change_key == 1 && round_ct <= 10) //if round is invalid, wait until a valid one arrives. keep old key round until then.
 		begin
 			input1 = cur_ff_q[23:16];
