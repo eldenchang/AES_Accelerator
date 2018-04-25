@@ -41,7 +41,7 @@ module GenRoundKeys_core
 			cur_ff_q = orig_ff_q;
 		end
 		else begin
-			cur_ff_q = KeySchedule[(127 * cur_round) : (127 * cur_round - 127)];
+			cur_ff_q = KeySchedule[(127 * cur_round - 127) +: 128];
 		end
 	end
 
@@ -65,7 +65,7 @@ module GenRoundKeys_core
 		else
 		begin
 			orig_ff_q <= orig_ff_d;
-			KeySchedule[(127 * round_ct) : (127 * round_ct - 127)] <= cur_ff_d;
+			KeySchedule[(127 * round_ct - 127) +: 128] <= cur_ff_d;
 			round_q <= round_d;
 		end
 	end
