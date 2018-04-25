@@ -1,7 +1,5 @@
 module ahb_slave
-#(
-parameter local= 24
-)
+
 (
 input wire hclk,
 input wire hresetn,
@@ -9,23 +7,24 @@ input wire [31:0] haddr,
 input wire hwrite,
 input wire hready,
 input wire [31:0] hwdata,
-output reg hreadyout,
-output reg [31:0] hrdata
+output wire hreadyout,
+output reg [31:0] hrdata,
+output reg [31:0] data_read_loc,
+output reg [31:0] data_write_loc,
+output reg [127:0] key,
+output reg [1:0] flag,
+output reg [31:0] size_data
+
 );
 
-hreadyout=1;
-reg [(local:0)] localaddr;
-reg [31:0] data_read_loc;
+assign hreadyout=1;
+wire [21:0] localaddr=22'b0000000000000000000000;
 reg [31:0] next_data_read_loc;
-reg [31:0] data_write_loc;
 reg [31:0] next_data_write_loc;
-reg [127:0] key;
 reg [127:0] next_key;
-reg [31:0] flag;
-reg [31:0] next_flag;
-reg [31:0] size_data;
+reg [1:0] next_flag;
 reg [31:0] next_size_data;
-localddr=24'b000000000000000000000000;
+reg [31:0] next_hrdata;
 
 typedef enum logic [2:0] {IDLE,WRITE,READ} state_type;
 state_type state,nextstate;
@@ -77,6 +76,12 @@ end
 
 always_comb
 begin
+next_data_read_loc='0;
+next_data_write_loc='0;
+next_key='0;
+next_flag='0;
+next_size_data='0;
+next_hrdata='0;
 case (state)
 
 WRITE:
@@ -98,48 +103,43 @@ next_key[31:0]=hwdata;
 else if (haddr[8:0] == 8'h18)
 next_size_data=hwdata;
 else if (haddr[8:0] == 8'h1C)
-next_flag=hwdata;
+next_flag=hwdata[1:0];
 end
 end
 READ:
 begin
-if (haddr[8:0] == 8'h1C & hwrite==0)
+if (haddr[8:0] == 8'h1C )
 next_hrdata=hwdata;
 end
 
 IDLE:
 begin
-data_read_loc='0;
-data_write_loc='0;
-key='0;
-flag='0;
-size_data='0;
-hrdata='0;
-
+next_data_read_loc='0;
+next_data_write_loc='0;
+next_key='0;
+next_flag='0;
+next_size_data='0;
+next_hrdata='0;
+end
 endcase
 end
 
-always_ff (posedge hclk, negedge hresetn)
+assign data_read_loc=next_data_read_loc;
+assign data_write_loc=next_data_write_loc;
+assign key=next_key;
+assign size_data=next_size_data;
+assign flag=next_flag;
+assign hrdata=next_hrdata;
+
+
+always_ff @(posedge hclk, negedge hresetn)
 begin
 if (hresetn==1'b0)
-begin
-data_read_loc<='0;
-data_write_loc<='0;
-key<='0;
-flag<='0;
-size_data<='0;
-hrdata<='0;
-end
+state<=IDLE;
 else
-begin
-data_read_loc<=next_data_read_loc;
-data_write_loc<=next_data_write_loc;
-key<=next_key;
-size_data<=next_size_data;
-flag<=next_flag;
-hrdata<=next_hrdata;
+state<=nextstate;
 end
-end
+
 endmodule
 
 
