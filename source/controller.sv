@@ -11,7 +11,7 @@ module controller(
 	//intput wire shift_enable, // from AESctr 
 	output reg change_key_start, //to GenKey and preAddKey, to start loading keys from rx_sr
 	output reg aes_enable, //to AESctr, to start the encryption proccess
-	output reg ahb_mode, //to AHB_lite interface, tell AHB interface input / output data 1== read from SRAm, 0==Write to SRAM
+	output reg ahb_mode, //to AHB_lite interface, tell AHB interface input / output data 0== read from SRAm, 1==Write to SRAM
 	output reg ahb_shift_en, // to AHB_lite interface to let interface shift in/out data
 	output reg aes_start
 	);
@@ -69,7 +69,7 @@ module controller(
 				end
 			INITIAL_READ: 
 				begin 
-					ahb_mode = 1;
+					ahb_mode = 0;
 					ahb_shift_en = 1;
 				end
 			INITIAL_WAIT:
@@ -83,7 +83,7 @@ module controller(
 				end
 			READ: 
 				begin 
-					ahb_mode = 1;
+					ahb_mode = 0;
 					ahb_shift_en = 1;
 					aes_enable = 1;
 				end
@@ -93,7 +93,7 @@ module controller(
 				end
 			WRITE: 
 				begin
-					ahb_mode = 0;
+					ahb_mode = 1;
 					ahb_shift_en = 1;	
 					aes_enable = 1;		
 				end
