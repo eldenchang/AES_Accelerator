@@ -7,39 +7,135 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/home/ecegrid/a/mg135/ece337/project_budget_expr
-vMixColumns
+Z0 d/home/ecegrid/a/mg135/ece337/project
+vflex_counter
 Z1 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
-!s110 1522376949
-!i10b 1
-!s100 UbFRU[H2g[3gA^iL5infR0
-INOlb?`;lldHZZ411ln9[h3
 Z2 V`JN@9S9cnhjKRR_L]QIcM3
-!s105 MixColumns_v_unit
-S1
-R0
-w1522376944
-8mapped/MixColumns.v
-Fmapped/MixColumns.v
-L0 8
-Z3 OL;L;10.3b;59
 r1
 !s85 0
 31
-!s108 1522376949.742225
-!s107 mapped/MixColumns.v|
-!s90 -sv|-work|mapped_work|mapped/MixColumns.v|
+!i10b 1
+!s100 H^joTP;8Rme=UTmVadPo_0
+Ii;nQZB@GJG5HXKBc1@6Ik2
+!s105 flex_counter_v_unit
+S1
+R0
+w1524707937
+8mapped/flex_counter.v
+Fmapped/flex_counter.v
+L0 8
+Z3 OL;L;10.3b;59
+!s108 1524707941.580811
+!s107 mapped/flex_counter.v|
+!s90 -sv|-work|mapped_work|mapped/flex_counter.v|
 !i113 0
 Z4 o-sv -work mapped_work
 Z5 tCoverage 63 CoverExcludeDefault 1 CoverOpt 1 CoverShortCircuit 0
-n@mix@columns
+vflex_counter_NUM_CNT_BITS3
+R1
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 C8ib5FfZP:_`<FJ>P3N]=1
+I3coclaT=<HEILSRIm69;10
+Z6 !s105 Substitute_v_unit
+S1
+R0
+Z7 w1524777832
+Z8 8mapped/Substitute.v
+Z9 Fmapped/Substitute.v
+L0 8
+R3
+Z10 !s108 1524777834.572544
+Z11 !s107 mapped/Substitute.v|
+Z12 !s90 -sv|-work|mapped_work|mapped/Substitute.v|
+!i113 0
+R4
+R5
+nflex_counter_@n@u@m_@c@n@t_@b@i@t@s3
+vflexbyte_stp_sr
+R1
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 Y;OlKUF6JFo<3N>N?30gg2
+I6YC2AlmThToc^3UomJnGV0
+!s105 flexbyte_stp_sr_v_unit
+S1
+R0
+w1524708575
+8mapped/flexbyte_stp_sr.v
+Fmapped/flexbyte_stp_sr.v
+L0 8
+R3
+!s108 1524708578.463921
+!s107 mapped/flexbyte_stp_sr.v|
+!s90 -sv|-work|mapped_work|mapped/flexbyte_stp_sr.v|
+!i113 0
+R4
+R5
+vflexbyte_stp_sr_MSB1_NUM_BYTES_IN4_NUM_BYTES_OUT16
+R1
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 ji3EG7BNLiY^<GgGdQdN42
+IWj=AI=_mFT:JRVjdVH9Y[0
+R6
+S1
+R0
+R7
+R8
+R9
+L0 56
+R3
+R10
+R11
+R12
+!i113 0
+R4
+R5
+nflexbyte_stp_sr_@m@s@b1_@n@u@m_@b@y@t@e@s_@i@n4_@n@u@m_@b@y@t@e@s_@o@u@t16
+vGenRoundKeys
+R1
+!s110 1524706675
+!i10b 1
+!s100 ZHb8D?z[T=EHGa=gGjo]k2
+I4zXFJQ^c<6L6IY46TO>o;2
+R2
+!s105 GenRoundKeys_v_unit
+S1
+R0
+w1524706671
+8mapped/GenRoundKeys.v
+Fmapped/GenRoundKeys.v
+L0 8
+R3
+r1
+!s85 0
+31
+!s108 1524706675.079383
+!s107 mapped/GenRoundKeys.v|
+!s90 -sv|-work|mapped_work|mapped/GenRoundKeys.v|
+!i113 0
+R4
+R5
+n@gen@round@keys
 vSBox
 R1
-!s110 1522375084
+R2
+r1
+!s85 0
+31
 !i10b 1
 !s100 _B<YTYTngJLP<SaebaTmJ2
 IU8`i;e5IFK=542[<ofWGe3
-R2
 !s105 SBox_v_unit
 S1
 R0
@@ -48,10 +144,7 @@ w1522375081
 Fmapped/SBox.v
 L0 8
 R3
-r1
-!s85 0
-31
-!s108 1522375084.889840
+!s108 1524704201.667590
 !s107 mapped/SBox.v|
 !s90 -sv|-work|mapped_work|mapped/SBox.v|
 !i113 0
@@ -60,26 +153,73 @@ R5
 n@s@box
 vSubstitute
 R1
-!s110 1522371852
-!i10b 1
-!s100 lmWE:UUWM90V_Mkkko?i82
-Im2Tfb^1]GA@onV;7BeO<L3
 R2
-!s105 Substitute_v_unit
-S1
-R0
-w1522371848
-8mapped/Substitute.v
-Fmapped/Substitute.v
-L0 8
-R3
 r1
 !s85 0
 31
-!s108 1522371852.234023
-!s107 mapped/Substitute.v|
-!s90 -sv|-work|mapped_work|mapped/Substitute.v|
+!i10b 1
+!s100 Jog:n]>n4OnE_Bifd`GhC1
+I=?f?^[5E::lG89BR>]ae11
+R6
+S1
+R0
+R7
+R8
+R9
+L0 611
+R3
+R10
+R11
+R12
 !i113 0
 R4
 R5
 n@substitute
+vtb_GenRoundKeys
+R1
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 <2>Zfnf<a^?4jREDDMXo90
+Ij6jC`cOO:Eh@_DAG>lN=>3
+!s105 tb_GenRoundKeys_sv_unit
+S1
+R0
+w1524696969
+8source/tb_GenRoundKeys.sv
+Fsource/tb_GenRoundKeys.sv
+L0 2
+R3
+!s108 1524704208.021610
+!s107 source/tb_GenRoundKeys.sv|
+!s90 -sv|-work|mapped_work|source/tb_GenRoundKeys.sv|
+!i113 0
+R4
+R5
+ntb_@gen@round@keys
+vtb_Substitute
+R1
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 gi^g;c=0bAWYVcUAn0TJY1
+I:435<9XT6NQZ0`3eRj88g1
+!s105 tb_Substitute_sv_unit
+S1
+R0
+w1524777586
+8source/tb_Substitute.sv
+Fsource/tb_Substitute.sv
+L0 2
+R3
+!s108 1524777838.745810
+!s107 source/tb_Substitute.sv|
+!s90 -sv|-work|mapped_work|source/tb_Substitute.sv|
+!i113 0
+R4
+R5
+ntb_@substitute

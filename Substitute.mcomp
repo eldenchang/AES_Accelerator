@@ -1,9 +1,9 @@
 QuestaSim-64 vlog 10.3b Compiler 2014.05 May 29 2014
-Start time: 21:04:12 on Mar 29,2018
-vlog -sv -work mapped_work mapped/Substitute.v 
--- Compiling module Substitute
+Start time: 17:23:58 on Apr 26,2018
+vlog -sv -work mapped_work source/tb_Substitute.sv 
+-- Compiling module tb_Substitute
 
 Top level modules:
-	Substitute
-End time: 21:04:12 on Mar 29,2018, Elapsed time: 0:00:00
+	tb_Substitute
+End time: 17:23:58 on Apr 26,2018, Elapsed time: 0:00:00
 Errors: 0, Warnings: 0

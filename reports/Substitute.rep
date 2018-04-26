@@ -1,4 +1,4 @@
-Warning: Design 'Substitute' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'Substitute' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
 Information: Updating design information... (UID-85)
  
 ****************************************
@@ -8,65 +8,61 @@ Report : timing
         -max_paths 1
 Design : Substitute
 Version: K-2015.06-SP1
-Date   : Thu Mar 29 21:04:08 2018
+Date   : Thu Apr 26 17:23:51 2018
 ****************************************
 
 Operating Conditions: typical   Library: osu05_stdcells
 Wire Load Model Mode: top
 
-  Startpoint: input_q_reg[99]
+  Startpoint: SR/ff_q_reg[95]
               (rising edge-triggered flip-flop)
-  Endpoint: data_out[127]
+  Endpoint: data_out[95]
             (output port)
   Path Group: (none)
   Path Type: max
 
-  Point                                    Incr       Path
-  -----------------------------------------------------------
-  input_q_reg[99]/CLK (DFFSR)              0.00       0.00 r
-  input_q_reg[99]/Q (DFFSR)                0.53       0.53 f
-  U867/Y (INVX1)                           0.15       0.68 r
-  U866/Y (NAND2X1)                         0.09       0.77 f
-  U862/Y (OAI21X1)                         0.29       1.06 r
-  U861/Y (INVX1)                           0.50       1.56 f
-  U655/Y (BUFX2)                           0.50       2.06 f
-  U830/Y (AND2X1)                          0.23       2.28 f
-  data_out[127] (out)                      0.00       2.28 f
-  data arrival time                                   2.28
-  -----------------------------------------------------------
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  SR/ff_q_reg[95]/CLK (DFFSR)                             0.00       0.00 r
+  SR/ff_q_reg[95]/Q (DFFSR)                               0.56       0.56 f
+  SR/data_out[95] (flexbyte_stp_sr_MSB1_NUM_BYTES_IN4_NUM_BYTES_OUT16)
+                                                          0.00       0.56 f
+  data_out[95] (out)                                      0.00       0.56 f
+  data arrival time                                                  0.56
+  --------------------------------------------------------------------------
   (Path is unconstrained)
 
 
 1
-Warning: Design 'Substitute' has '3' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Warning: Design 'Substitute' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
  
 ****************************************
 Report : area
 Design : Substitute
 Version: K-2015.06-SP1
-Date   : Thu Mar 29 21:04:08 2018
+Date   : Thu Apr 26 17:23:51 2018
 ****************************************
 
 Library(s) Used:
 
     osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
 
-Number of ports:                          267
-Number of nets:                          1050
-Number of cells:                          760
-Number of combinational cells:            552
-Number of sequential cells:               208
+Number of ports:                          433
+Number of nets:                          1481
+Number of cells:                         1153
+Number of combinational cells:            688
+Number of sequential cells:               463
 Number of macros/black boxes:               0
-Number of buf/inv:                        185
-Number of references:                      17
+Number of buf/inv:                        310
+Number of references:                      14
 
-Combinational area:             130743.000000
-Buf/Inv area:                    28152.000000
-Noncombinational area:          158400.000000
+Combinational area:             170874.000000
+Buf/Inv area:                    45936.000000
+Noncombinational area:          361152.000000
 Macro/Black Box area:                0.000000
 Net Interconnect area:      undefined  (No wire load specified)
 
-Total cell area:                289143.000000
+Total cell area:                532026.000000
 Total area:                 undefined
 
 Information: This design contains black box (unknown) components. (RPT-8)
@@ -84,7 +80,7 @@ Report : power
         -analysis_effort low
 Design : Substitute
 Version: K-2015.06-SP1
-Date   : Thu Mar 29 21:04:08 2018
+Date   : Thu Apr 26 17:23:52 2018
 ****************************************
 
 
@@ -110,5 +106,8 @@ Power-specific unit information :
                                        Switch   Int      Leak     Total
 Hierarchy                              Power    Power    Power    Power    %
 --------------------------------------------------------------------------------
-Substitute                               28.303   48.678   93.683   76.981 100.0
+Substitute                               18.494   69.676  168.598   88.171 100.0
+  SR (flexbyte_stp_sr_MSB1_NUM_BYTES_IN4_NUM_BYTES_OUT16)
+                                          3.643   24.553   89.603   28.196  32.0
+  Counter (flex_counter_NUM_CNT_BITS3)    0.339    0.983    4.661    1.321   1.5
 1
