@@ -16,7 +16,8 @@ reg [127:0] sr_output;
 reg rollover_flag;
 
 assign header = input_q[99:96];
-assign data_out = (header == 0 || load == 0) ? '0 : {header, sr_output};
+assign data_out = {header, sr_output};
+//assign data_out = (header == 0 && load == 0) ? '0 : {header, sr_output};
 
 flex_counter #(3) Counter(.clk(clk), .n_rst(n_rst), .count_enable(load | ~rollover_flag), .rollover_val(3'd4), .rollover_flag(rollover_flag));
 SBox SBox1(.data_in(input1), .data_out(output1));

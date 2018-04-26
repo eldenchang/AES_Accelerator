@@ -11,7 +11,7 @@ module GenRoundKeys
 	);
 	
 	reg [127:0] cur_ff_d, cur_ff_q, orig_ff_d, orig_ff_q; //define input/output of FF's
-	reg [1270:0] KeySchedule; //the key schedule
+	reg [1279:0] KeySchedule; //the key schedule
 	reg [3:0] round_ct;
 	bit [127:0] n_roundKey; 
 	reg [3:0] round_d, round_q; //maintain cur_key's corresponding round
@@ -21,9 +21,10 @@ module GenRoundKeys
 	reg [7:0] output1, output2, output3, output4; //outputs to SBox
 	reg change_key;
 	
-	assign cur_key = cur_ff_q;
+	//assign cur_key = cur_ff_q;
 	assign orig_key = orig_ff_q;
 	assign change_key_done = change_key;
+	assign cur_key = KeySchedule[(127 * cur_round - 127) +: 128];
 	
 	SBox SBOX1(.data_in(input1), .data_out(output1));
 	SBox SBOX2(.data_in(input2), .data_out(output2));
@@ -36,21 +37,21 @@ module GenRoundKeys
 	 rcon = {8'd1, 8'd2, 8'd4, 8'd8, 8'd16, 8'd32, 8'd64, 8'd128, 8'd27, 8'd54};
 	end
 
-	always_comb begin
-		if(cur_round == 0) begin
-			//orig_ff_q = orig_ff_q;
-		end
-		else begin
-			cur_ff_q = KeySchedule[(127 * cur_round - 127) +: 128];
-		end
-	end
+	// always_comb begin
+	// 	if(cur_round == 0) begin
+	// 		//orig_ff_q = orig_ff_q;
+	// 	end
+	// 	else begin
+	// 		cur_key = KeySchedule[(127 * cur_round - 127) +: 128];
+	// 	end
+	// end
 
 	
 	always_ff @(posedge clk or negedge n_rst) begin
-			if(n_rst == 0 || chg_key == 0) begin
-				round_ct <= '0;
+			if(n_rst == 0) begin
+				round_ct <= chg_key;
 			end else begin
-				round_ct = round_ct + 1;
+				round_ct <= round_ct + 1;
 			end
 		end
 	
@@ -60,13 +61,14 @@ module GenRoundKeys
 		begin
 			orig_ff_q <= '0;
 			KeySchedule<= '0;
-			round_q <= '0;
+			//round_q <= '0;
 		end
 		else
 		begin
 			orig_ff_q <= orig_ff_d;
-			KeySchedule[(127 * round_ct - 127) +: 128] <= cur_ff_d;
-			round_q <= round_d;
+			KeySchedule[(128 * round_ct - 128) +: 127] <= cur_ff_d;
+			cur_ff_q <= cur_ff_d;
+			//round_q <= round_d;
 		end
 	end
 	
@@ -101,7 +103,7 @@ module GenRoundKeys
 			cur_ff_d[31:0] = cur_ff_d[63:32] ^ cur_ff_q[31:0];
 	
 		end
-		else if (round_ct == 0 && chg_key == 1)
+		else if (round_ct == 0)
 		begin
 			input1 = cur_ff_q[23:16];
 			input2 = cur_ff_q[15:8];
