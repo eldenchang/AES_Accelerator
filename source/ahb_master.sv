@@ -33,7 +33,7 @@ module ahb_master
 );
 	typedef enum logic [1:0] {IDLE, WAIT, READ, WRITE, ERROR} statetype;
 	statetype state , next, temp;
-	reg [31:0] n_hrdata, n_hwdata, n_haddr;
+	reg [31:0] n_out, n_hwdata, n_haddr;
 	reg [3:0] count, n_count;
 	reg [31:0] check;
 
@@ -42,7 +42,7 @@ module ahb_master
 		if (n_rst == 0)
 		begin
 			state <= WAIT;
-			hrdata <= 0;
+			//hrdata <= 0;
 			hwdata <= 0;
 			count <= 0;
 			haddr <= 0;
@@ -51,7 +51,8 @@ module ahb_master
 		else
 		begin
 			state <= next;
-			hrdata <= n_hrdata;
+			//hrdata <= n_hrdata;
+			shiftout <= n_out;
 			hwdata <= n_hwdata;
 			count <= n_count;
 			haddr <= n_haddr;
@@ -61,7 +62,6 @@ module ahb_master
 	always_comb
 	begin
 		next = state;
-		n_hrdata = hrdata;
 		n_hwdata = hwdata;
 		n_haddr = haddr;
 		n_count = count;
@@ -121,7 +121,7 @@ module ahb_master
 							n_count = n_count + 1;
 							next = READ;
 							n_haddr = raddr;
-							shiftout = n_hrdata
+							n_out = hrdata;
 						end
 						else
 						begin
@@ -161,7 +161,7 @@ module ahb_master
 			end
 			ERROR:
 			begin
-				if(hready == 1)
+				if(hready == 1 && hresp == 0)
 				begin
 					next = IDLE;
 				end
