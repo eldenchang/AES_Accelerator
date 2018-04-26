@@ -18,7 +18,7 @@ module ahb_master
 	input wire [31:0] size,
 	input wire [31:0] shiftin,
 	input wire [31:0] raddr,
-	input wire [31:] waddr,
+	input wire [31:0] waddr,
 	input wire [31:0] hrdata,
 	output reg [31:0] haddr,
 	output reg [31:0] shiftout,
