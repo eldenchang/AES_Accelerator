@@ -54,7 +54,7 @@ module ahb_master
 			hrdata <= n_hrdata;
 			hwdata <= n_hwdata;
 			count <= n_count;
-			haddr = n_haddr;
+			haddr <= n_haddr;
 		end
 	end
 
@@ -84,7 +84,7 @@ module ahb_master
 						check = check + 1;
 						if(check == size)
 						begin
-							enblock = 1;
+							end_block = 1;
 						end
 					end
 						
