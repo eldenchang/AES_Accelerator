@@ -1,0 +1,9 @@
+QuestaSim-64 vlog 10.3b Compiler 2014.05 May 29 2014
+Start time: 00:10:54 on Apr 27,2018
+vlog -sv -work mapped_work mapped/AESctrl.v 
+-- Compiling module AESctrl
+
+Top level modules:
+	AESctrl
+End time: 00:10:54 on Apr 27,2018, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

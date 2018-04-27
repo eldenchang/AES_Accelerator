@@ -2,7 +2,7 @@ module flexbyte_pts_sr
 #(
 	parameter MSB = 1, //boolean, is MSB shifted out first?
 	parameter NUM_BYTES_IN = 16, //number of bytes passed to shift register
-	parameter NUM_BYTES_OUT = 8 //number of bytes shifted out of shift register
+	parameter NUM_BYTES_OUT = 4 //number of bytes shifted out of shift register
 )
 (
 	input wire clk,
@@ -10,7 +10,7 @@ module flexbyte_pts_sr
 	input wire shift_enable,
 	input wire load_enable,
 	input wire [127:0] data_in,
-	output reg [63:0] data_out
+	output reg [31:0] data_out
 );
 
 initial
@@ -41,13 +41,13 @@ always_comb begin
 	if(load_enable)
 		next_data = data_in;
 	else if(MSB && shift_enable) 
-		next_data = {curr_data[63:0], 64'b0};
+		next_data = {curr_data[95:0], 32'b0};
 	else if(shift_enable && !MSB)
-		next_data = {64'b0, curr_data[127:64]};
+		next_data = {32'b0, curr_data[127:32]};
 	else
 		next_data = curr_data;
 end
 
-assign data_out = (!n_rst) ? 64'b0 : (MSB ? curr_data[127:64] : curr_data[63:0]);
+assign data_out = (!n_rst) ? 32'b0 : (MSB ? curr_data[127:96] : curr_data[31:0]);
 
 endmodule

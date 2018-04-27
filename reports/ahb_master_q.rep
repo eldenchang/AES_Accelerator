@@ -1,0 +1,145 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : ahb_master_q
+Version: K-2015.06-SP1
+Date   : Fri Apr 27 06:32:15 2018
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: state_reg[2]
+              (rising edge-triggered flip-flop)
+  Endpoint: haddr[31] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  state_reg[2]/CLK (DFFSR)                                0.00       0.00 r
+  state_reg[2]/Q (DFFSR)                                  0.51       0.51 r
+  U393/Y (INVX1)                                          0.37       0.87 f
+  U392/Y (NAND3X1)                                        0.64       1.51 r
+  U258/Y (INVX4)                                          0.90       2.42 f
+  U321/Y (AOI22X1)                                        0.22       2.64 r
+  U320/Y (INVX1)                                          0.27       2.91 f
+  r352/A[2] (ahb_master_q_DW01_add_1)                     0.00       2.91 f
+  r352/U13/Y (AND2X2)                                     0.32       3.23 f
+  r352/U1_3/YC (FAX1)                                     0.41       3.64 f
+  r352/U14/Y (AND2X2)                                     0.28       3.92 f
+  r352/U27/Y (AND2X2)                                     0.24       4.16 f
+  r352/U54/Y (XOR2X1)                                     0.28       4.45 f
+  r352/SUM[6] (ahb_master_q_DW01_add_1)                   0.00       4.45 f
+  r356/B[6] (ahb_master_q_DW01_add_0)                     0.00       4.45 f
+  r356/U1_6/YC (FAX1)                                     0.46       4.91 f
+  r356/U1_7/YC (FAX1)                                     0.46       5.37 f
+  r356/U1_8/YC (FAX1)                                     0.46       5.83 f
+  r356/U1_9/YC (FAX1)                                     0.46       6.29 f
+  r356/U1_10/YC (FAX1)                                    0.46       6.75 f
+  r356/U1_11/YC (FAX1)                                    0.46       7.21 f
+  r356/U1_12/YC (FAX1)                                    0.46       7.67 f
+  r356/U1_13/YC (FAX1)                                    0.46       8.13 f
+  r356/U1_14/YC (FAX1)                                    0.46       8.58 f
+  r356/U1_15/YC (FAX1)                                    0.46       9.04 f
+  r356/U1_16/YC (FAX1)                                    0.46       9.50 f
+  r356/U1_17/YC (FAX1)                                    0.46       9.96 f
+  r356/U1_18/YC (FAX1)                                    0.46      10.42 f
+  r356/U1_19/YC (FAX1)                                    0.46      10.88 f
+  r356/U1_20/YC (FAX1)                                    0.46      11.34 f
+  r356/U1_21/YC (FAX1)                                    0.46      11.80 f
+  r356/U1_22/YC (FAX1)                                    0.46      12.26 f
+  r356/U1_23/YC (FAX1)                                    0.46      12.72 f
+  r356/U1_24/YC (FAX1)                                    0.46      13.18 f
+  r356/U1_25/YC (FAX1)                                    0.46      13.63 f
+  r356/U1_26/YC (FAX1)                                    0.46      14.09 f
+  r356/U1_27/YC (FAX1)                                    0.46      14.55 f
+  r356/U1_28/YC (FAX1)                                    0.46      15.01 f
+  r356/U1_29/YC (FAX1)                                    0.46      15.47 f
+  r356/U1_30/YC (FAX1)                                    0.46      15.93 f
+  r356/U1_31/YS (FAX1)                                    0.40      16.33 f
+  r356/SUM[31] (ahb_master_q_DW01_add_0)                  0.00      16.33 f
+  U364/Y (AND2X1)                                         0.12      16.46 f
+  haddr[31] (out)                                         0.00      16.46 f
+  data arrival time                                                 16.46
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : area
+Design : ahb_master_q
+Version: K-2015.06-SP1
+Date   : Fri Apr 27 06:32:15 2018
+****************************************
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+Number of ports:                          463
+Number of nets:                           558
+Number of cells:                          243
+Number of combinational cells:            226
+Number of sequential cells:                15
+Number of macros/black boxes:               0
+Number of buf/inv:                         47
+Number of references:                      14
+
+Combinational area:              87993.000000
+Buf/Inv area:                     7056.000000
+Noncombinational area:            7920.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                 95913.000000
+Total area:                 undefined
+1
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : ahb_master_q
+Version: K-2015.06-SP1
+Date   : Fri Apr 27 06:32:15 2018
+****************************************
+
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+ahb_master_q                              2.566    3.450   31.676    6.016 100.0
+  r352 (ahb_master_q_DW01_add_1)          0.388    0.447    8.877    0.835  13.9
+  r356 (ahb_master_q_DW01_add_0)          0.226    0.611    9.769    0.837  13.9
+1

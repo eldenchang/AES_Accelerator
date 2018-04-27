@@ -12,17 +12,19 @@ module controller(
 	output reg change_key_start, //to GenKey and preAddKey, to start loading keys from rx_sr
 	output reg aes_enable, //to AESctr, to start the encryption proccess
 	output reg ahb_mode, //to AHB_lite interface, tell AHB interface input / output data 0== read from SRAm, 1==Write to SRAM
-	output reg ahb_shift_en
+	output reg ahb_shift_en,
+	output reg restart_check
 	);
 
-	typedef enum bit [2:0]{IDLE, INITIAL_READ, INITIAL_WAIT, WAIT_CYCLE_START, READ, WAIT_FOR_AES, WRITE, CHNGE_KEY} stateType;
+	typedef enum bit [3:0]{IDLE, INITIAL_READ, INITIAL_WAIT, WAIT_CYCLE_START, READ, WAIT_FOR_AES, WRITE, WAIT_AGAIN, CHNGE_KEY} stateType;
 
 	stateType state;
 	stateType n_state;
 
 	reg rst_switch_state;
 	reg roll_over;
-	flex_counter counter(.clk(clk), .n_rst(n_rst), .count_enable(1'b1), .rollover_val(4'd10), .clear(rst_switch_state) , .rollover_flag(roll_over));
+	reg [3:0] roll_over_val;
+	flex_counter counter(.clk(clk), .n_rst(n_rst), .count_enable(1'b1), .rollover_val(roll_over_val), .clear(rst_switch_state) , .rollover_flag(roll_over));
 
 
 	always_ff @(posedge clk or negedge n_rst) begin
@@ -46,20 +48,24 @@ module controller(
 			WAIT_CYCLE_START: n_state = roll_over ? READ : WAIT_CYCLE_START;
 			READ: n_state = WAIT_FOR_AES;
 			WAIT_FOR_AES: n_state = enc_done ? WRITE : WAIT_FOR_AES;
-			WRITE: n_state = last_round ? IDLE : WAIT_CYCLE_START;
+			WRITE: n_state = WAIT_AGAIN;
+			WAIT_AGAIN: n_state =  roll_over ? (last_round? IDLE : WAIT_CYCLE_START) : WAIT_AGAIN;
 		endcase // state
 	end
 
 	always_comb begin
 		change_key_start = 0;
+		restart_check =0 ;
 		aes_enable = 0;
 		ahb_mode = 0;
 		ahb_shift_en = 0;
 		rst_switch_state = 1;
+		roll_over_val = 4'd10;
 		case(state)
 			IDLE: 
 				begin
 					rst_switch_state = 1; 
+					restart_check = 1;
 				end
 			CHNGE_KEY: 
 				begin
@@ -77,6 +83,7 @@ module controller(
 			WAIT_CYCLE_START:
 				begin
 					rst_switch_state = 0;
+					roll_over_val = 4'd2;
 					aes_enable = 1;
 				end
 			READ: 
@@ -93,7 +100,13 @@ module controller(
 				begin
 					ahb_mode = 1;
 					ahb_shift_en = 1;	
-					aes_enable = 1;		
+					aes_enable = 0;		
+				end
+			WAIT_AGAIN: 
+				begin
+					rst_switch_state = 0;	
+					roll_over_val = 4'd7;
+					aes_enable = 0;		
 				end
 		endcase // state
 	end

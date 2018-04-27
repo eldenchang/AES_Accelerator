@@ -1,0 +1,293 @@
+Synthesizing design: shiftRows.sv
+dc_shell-t -x "source -echo do_mapping.tcl"
+                                        
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+                                        
+               Version K-2015.06-SP1 for linux64 - Jul 21, 2015 
+                                        
+                    Copyright (c) 1988 - 2015 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+# Step 1:  Read in the source file
+analyze -format sverilog -lib WORK { shiftRows.sv}
+Running PRESTO HDLC
+Compiling source file ./source/shiftRows.sv
+Presto compilation completed successfully.
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+Loading db file '/package/eda/synopsys/syn-K-2015.06-SP1/libraries/syn/dw_foundation.sldb'
+elaborate shiftRows -lib WORK
+Loading db file '/package/eda/synopsys/syn-K-2015.06-SP1/libraries/syn/gtech.db'
+Loading db file '/package/eda/synopsys/syn-K-2015.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'osu05_stdcells'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'shiftRows'.
+uniquify
+# Step 2: Set design constraints
+# Uncomment below to set timing, area, power, etc. constraints
+# set_max_delay <delay> -from "<input>" -to "<output>"
+# set_max_area <area>
+# set_max_total_power <power> mW
+# Step 3: Compile the design
+compile -map_effort medium
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | K-2015.06-DWBB_201506.1 |     *     |
+| Licensed DW Building Blocks        | K-2015.06-DWBB_201506.1 |           |
+============================================================================
+
+
+Information: There are 128 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'shiftRows'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'shiftRows' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+    0:00:01       0.0      0.00       0.0       0.0                          
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+# Step 4: Output reports
+report_timing -path full -delay max -max_paths 1 -nworst 1 > reports/shiftRows.rep
+report_area >> reports/shiftRows.rep
+report_power -hier >> reports/shiftRows.rep
+# Step 5: Output final VHDL and Verilog files
+write_file -format verilog -hierarchy -output "mapped/shiftRows.v"
+Writing verilog file '/home/ecegrid/a/mg135/ece337/project/mapped/shiftRows.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+echo "\nScript Done\n"
+
+Script Done
+
+echo "\nChecking Design\n"
+
+Checking Design
+
+check_design
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06-SP1
+Date:        Thu Apr 26 21:36:02 2018
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                    128
+    Feedthrough (LINT-29)                                         128
+--------------------------------------------------------------------------------
+
+Warning: In design 'shiftRows', input port 'in[127]' is connected directly to output port 'out[127]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[126]' is connected directly to output port 'out[126]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[125]' is connected directly to output port 'out[125]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[124]' is connected directly to output port 'out[124]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[123]' is connected directly to output port 'out[123]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[122]' is connected directly to output port 'out[122]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[121]' is connected directly to output port 'out[121]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[120]' is connected directly to output port 'out[120]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[119]' is connected directly to output port 'out[23]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[118]' is connected directly to output port 'out[22]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[117]' is connected directly to output port 'out[21]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[116]' is connected directly to output port 'out[20]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[115]' is connected directly to output port 'out[19]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[114]' is connected directly to output port 'out[18]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[113]' is connected directly to output port 'out[17]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[112]' is connected directly to output port 'out[16]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[111]' is connected directly to output port 'out[47]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[110]' is connected directly to output port 'out[46]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[109]' is connected directly to output port 'out[45]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[108]' is connected directly to output port 'out[44]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[107]' is connected directly to output port 'out[43]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[106]' is connected directly to output port 'out[42]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[105]' is connected directly to output port 'out[41]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[104]' is connected directly to output port 'out[40]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[103]' is connected directly to output port 'out[71]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[102]' is connected directly to output port 'out[70]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[101]' is connected directly to output port 'out[69]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[100]' is connected directly to output port 'out[68]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[99]' is connected directly to output port 'out[67]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[98]' is connected directly to output port 'out[66]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[97]' is connected directly to output port 'out[65]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[96]' is connected directly to output port 'out[64]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[95]' is connected directly to output port 'out[95]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[94]' is connected directly to output port 'out[94]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[93]' is connected directly to output port 'out[93]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[92]' is connected directly to output port 'out[92]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[91]' is connected directly to output port 'out[91]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[90]' is connected directly to output port 'out[90]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[89]' is connected directly to output port 'out[89]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[88]' is connected directly to output port 'out[88]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[87]' is connected directly to output port 'out[119]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[86]' is connected directly to output port 'out[118]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[85]' is connected directly to output port 'out[117]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[84]' is connected directly to output port 'out[116]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[83]' is connected directly to output port 'out[115]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[82]' is connected directly to output port 'out[114]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[81]' is connected directly to output port 'out[113]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[80]' is connected directly to output port 'out[112]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[79]' is connected directly to output port 'out[15]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[78]' is connected directly to output port 'out[14]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[77]' is connected directly to output port 'out[13]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[76]' is connected directly to output port 'out[12]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[75]' is connected directly to output port 'out[11]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[74]' is connected directly to output port 'out[10]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[73]' is connected directly to output port 'out[9]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[72]' is connected directly to output port 'out[8]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[71]' is connected directly to output port 'out[39]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[70]' is connected directly to output port 'out[38]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[69]' is connected directly to output port 'out[37]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[68]' is connected directly to output port 'out[36]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[67]' is connected directly to output port 'out[35]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[66]' is connected directly to output port 'out[34]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[65]' is connected directly to output port 'out[33]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[64]' is connected directly to output port 'out[32]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[63]' is connected directly to output port 'out[63]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[62]' is connected directly to output port 'out[62]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[61]' is connected directly to output port 'out[61]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[60]' is connected directly to output port 'out[60]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[59]' is connected directly to output port 'out[59]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[58]' is connected directly to output port 'out[58]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[57]' is connected directly to output port 'out[57]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[56]' is connected directly to output port 'out[56]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[55]' is connected directly to output port 'out[87]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[54]' is connected directly to output port 'out[86]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[53]' is connected directly to output port 'out[85]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[52]' is connected directly to output port 'out[84]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[51]' is connected directly to output port 'out[83]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[50]' is connected directly to output port 'out[82]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[49]' is connected directly to output port 'out[81]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[48]' is connected directly to output port 'out[80]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[47]' is connected directly to output port 'out[111]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[46]' is connected directly to output port 'out[110]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[45]' is connected directly to output port 'out[109]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[44]' is connected directly to output port 'out[108]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[43]' is connected directly to output port 'out[107]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[42]' is connected directly to output port 'out[106]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[41]' is connected directly to output port 'out[105]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[40]' is connected directly to output port 'out[104]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[39]' is connected directly to output port 'out[7]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[38]' is connected directly to output port 'out[6]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[37]' is connected directly to output port 'out[5]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[36]' is connected directly to output port 'out[4]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[35]' is connected directly to output port 'out[3]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[34]' is connected directly to output port 'out[2]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[33]' is connected directly to output port 'out[1]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[32]' is connected directly to output port 'out[0]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[31]' is connected directly to output port 'out[31]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[30]' is connected directly to output port 'out[30]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[29]' is connected directly to output port 'out[29]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[28]' is connected directly to output port 'out[28]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[27]' is connected directly to output port 'out[27]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[26]' is connected directly to output port 'out[26]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[25]' is connected directly to output port 'out[25]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[24]' is connected directly to output port 'out[24]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[23]' is connected directly to output port 'out[55]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[22]' is connected directly to output port 'out[54]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[21]' is connected directly to output port 'out[53]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[20]' is connected directly to output port 'out[52]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[19]' is connected directly to output port 'out[51]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[18]' is connected directly to output port 'out[50]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[17]' is connected directly to output port 'out[49]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[16]' is connected directly to output port 'out[48]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[15]' is connected directly to output port 'out[79]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[14]' is connected directly to output port 'out[78]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[13]' is connected directly to output port 'out[77]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[12]' is connected directly to output port 'out[76]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[11]' is connected directly to output port 'out[75]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[10]' is connected directly to output port 'out[74]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[9]' is connected directly to output port 'out[73]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[8]' is connected directly to output port 'out[72]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[7]' is connected directly to output port 'out[103]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[6]' is connected directly to output port 'out[102]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[5]' is connected directly to output port 'out[101]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[4]' is connected directly to output port 'out[100]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[3]' is connected directly to output port 'out[99]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[2]' is connected directly to output port 'out[98]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[1]' is connected directly to output port 'out[97]'. (LINT-29)
+Warning: In design 'shiftRows', input port 'in[0]' is connected directly to output port 'out[96]'. (LINT-29)
+quit
+
+Thank you...
+Done
+
+

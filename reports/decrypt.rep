@@ -1,0 +1,470 @@
+Information: Building the design 'addKey'. (HDL-193)
+Warning: Cannot find the design 'addKey' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'addKey' in 'decrypt'. (LINK-5)
+Warning: Design 'decrypt' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Updating design information... (UID-85)
+Warning: Design 'decrypt' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : decrypt
+Version: K-2015.06-SP1
+Date   : Thu Apr 26 21:31:51 2018
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: Invmix_block/ff_q_reg[127]
+              (rising edge-triggered flip-flop)
+  Endpoint: decrypted[127]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  Invmix_block/ff_q_reg[127]/CLK (DFFSR)                  0.00       0.00 r
+  Invmix_block/ff_q_reg[127]/Q (DFFSR)                    0.42       0.42 f
+  Invmix_block/data_out[127] (InvMixColumns)              0.00       0.42 f
+  decrypted[127] (out)                                    0.00       0.42 f
+  data arrival time                                                  0.42
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+Warning: Design 'decrypt' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+Report : area
+Design : decrypt
+Version: K-2015.06-SP1
+Date   : Thu Apr 26 21:31:51 2018
+****************************************
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+Number of ports:                         6790
+Number of nets:                         24989
+Number of cells:                        18443
+Number of combinational cells:          17813
+Number of sequential cells:               387
+Number of macros/black boxes:               0
+Number of buf/inv:                       1445
+Number of references:                       5
+
+Combinational area:            5641200.000000
+Buf/Inv area:                   218736.000000
+Noncombinational area:          202752.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:               5843952.000000
+Total area:                 undefined
+
+Information: This design contains black box (unknown) components. (RPT-8)
+1
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+Warning: Design has unannotated black box outputs. (PWR-428)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : decrypt
+Version: K-2015.06-SP1
+Date   : Thu Apr 26 21:31:52 2018
+****************************************
+
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+decrypt                                1.26e+03 1.72e+03 1.83e+03 2.98e+03 100.0
+  Invmix_block (InvMixColumns)          576.830  994.248 1.31e+03 1.57e+03  52.8
+    genblk1[3].genblk1[3].ADD3 (ff_add_8bit_0)
+                                          1.299    4.194    1.442    5.493   0.2
+      ADD (ff_add_NUM_BITS8_0)            1.299    4.194    1.442    5.493   0.2
+    genblk1[3].genblk1[3].ADD2 (ff_add_8bit_1)
+                                          2.289    3.693    1.442    5.982   0.2
+      ADD (ff_add_NUM_BITS8_1)            2.289    3.693    1.442    5.982   0.2
+    genblk1[3].genblk1[3].ADD1 (ff_add_8bit_2)
+                                          1.758    2.799    1.442    4.557   0.2
+      ADD (ff_add_NUM_BITS8_2)            1.758    2.799    1.442    4.557   0.2
+    genblk1[3].genblk1[3].MULT4 (ff_mult_8bit_0)
+                                          6.157   10.264   17.653   16.421   0.6
+      FF_MULT (ff_mult_NUM_BITS8_0)       6.157   10.264   17.653   16.421   0.6
+    genblk1[3].genblk1[3].MULT3 (ff_mult_8bit_1)
+                                          6.047   10.256   17.653   16.303   0.5
+      FF_MULT (ff_mult_NUM_BITS8_1)       6.047   10.256   17.653   16.303   0.5
+    genblk1[3].genblk1[3].MULT2 (ff_mult_8bit_2)
+                                          6.164   10.431   17.653   16.595   0.6
+      FF_MULT (ff_mult_NUM_BITS8_2)       6.164   10.431   17.653   16.595   0.6
+    genblk1[3].genblk1[3].MULT1 (ff_mult_8bit_3)
+                                          4.878    8.044   17.653   12.922   0.4
+      FF_MULT (ff_mult_NUM_BITS8_3)       4.878    8.044   17.653   12.922   0.4
+    genblk1[3].genblk1[2].ADD3 (ff_add_8bit_3)
+                                          1.299    4.205    1.442    5.505   0.2
+      ADD (ff_add_NUM_BITS8_3)            1.299    4.205    1.442    5.505   0.2
+    genblk1[3].genblk1[2].ADD2 (ff_add_8bit_4)
+                                          2.324    3.775    1.442    6.098   0.2
+      ADD (ff_add_NUM_BITS8_4)            2.324    3.775    1.442    6.098   0.2
+    genblk1[3].genblk1[2].ADD1 (ff_add_8bit_5)
+                                          1.930    3.081    1.442    5.011   0.2
+      ADD (ff_add_NUM_BITS8_5)            1.930    3.081    1.442    5.011   0.2
+    genblk1[3].genblk1[2].MULT4 (ff_mult_8bit_4)
+                                          4.611    7.863   17.653   12.473   0.4
+      FF_MULT (ff_mult_NUM_BITS8_4)       4.611    7.863   17.653   12.473   0.4
+    genblk1[3].genblk1[2].MULT3 (ff_mult_8bit_5)
+                                          6.181   10.293   17.653   16.474   0.6
+      FF_MULT (ff_mult_NUM_BITS8_5)       6.181   10.293   17.653   16.474   0.6
+    genblk1[3].genblk1[2].MULT2 (ff_mult_8bit_6)
+                                          6.072   10.294   17.653   16.366   0.5
+      FF_MULT (ff_mult_NUM_BITS8_6)       6.072   10.294   17.653   16.366   0.5
+    genblk1[3].genblk1[2].MULT1 (ff_mult_8bit_7)
+                                          6.435   10.582   17.653   17.018   0.6
+      FF_MULT (ff_mult_NUM_BITS8_7)       6.435   10.582   17.653   17.018   0.6
+    genblk1[3].genblk1[1].ADD3 (ff_add_8bit_6)
+                                          1.298    4.183    1.442    5.481   0.2
+      ADD (ff_add_NUM_BITS8_6)            1.298    4.183    1.442    5.481   0.2
+    genblk1[3].genblk1[1].ADD2 (ff_add_8bit_7)
+                                          2.249    3.658    1.442    5.907   0.2
+      ADD (ff_add_NUM_BITS8_7)            2.249    3.658    1.442    5.907   0.2
+    genblk1[3].genblk1[1].ADD1 (ff_add_8bit_8)
+                                          1.875    3.012    1.442    4.887   0.2
+      ADD (ff_add_NUM_BITS8_8)            1.875    3.012    1.442    4.887   0.2
+    genblk1[3].genblk1[1].MULT4 (ff_mult_8bit_8)
+                                          6.115   10.356   17.653   16.471   0.6
+      FF_MULT (ff_mult_NUM_BITS8_8)       6.115   10.356   17.653   16.471   0.6
+    genblk1[3].genblk1[1].MULT3 (ff_mult_8bit_9)
+                                          4.635    7.895   17.653   12.530   0.4
+      FF_MULT (ff_mult_NUM_BITS8_9)       4.635    7.895   17.653   12.530   0.4
+    genblk1[3].genblk1[1].MULT2 (ff_mult_8bit_10)
+                                          6.208   10.331   17.653   16.539   0.6
+      FF_MULT (ff_mult_NUM_BITS8_10)      6.208   10.331   17.653   16.539   0.6
+    genblk1[3].genblk1[1].MULT1 (ff_mult_8bit_11)
+                                          6.358   10.452   17.653   16.809   0.6
+      FF_MULT (ff_mult_NUM_BITS8_11)      6.358   10.452   17.653   16.809   0.6
+    genblk1[3].genblk1[0].ADD3 (ff_add_8bit_9)
+                                          1.298    4.175    1.442    5.474   0.2
+      ADD (ff_add_NUM_BITS8_9)            1.298    4.175    1.442    5.474   0.2
+    genblk1[3].genblk1[0].ADD2 (ff_add_8bit_10)
+                                          2.204    3.562    1.442    5.766   0.2
+      ADD (ff_add_NUM_BITS8_10)           2.204    3.562    1.442    5.766   0.2
+    genblk1[3].genblk1[0].ADD1 (ff_add_8bit_11)
+                                          1.712    2.746    1.442    4.457   0.1
+      ADD (ff_add_NUM_BITS8_11)           1.712    2.746    1.442    4.457   0.1
+    genblk1[3].genblk1[0].MULT4 (ff_mult_8bit_12)
+                                          6.016   10.212   17.653   16.228   0.5
+      FF_MULT (ff_mult_NUM_BITS8_12)      6.016   10.212   17.653   16.228   0.5
+    genblk1[3].genblk1[0].MULT3 (ff_mult_8bit_13)
+                                          6.135   10.381   17.653   16.516   0.6
+      FF_MULT (ff_mult_NUM_BITS8_13)      6.135   10.381   17.653   16.516   0.6
+    genblk1[3].genblk1[0].MULT2 (ff_mult_8bit_14)
+                                          4.653    7.926   17.653   12.578   0.4
+      FF_MULT (ff_mult_NUM_BITS8_14)      4.653    7.926   17.653   12.578   0.4
+    genblk1[3].genblk1[0].MULT1 (ff_mult_8bit_15)
+                                          6.486   10.525   17.653   17.010   0.6
+      FF_MULT (ff_mult_NUM_BITS8_15)      6.486   10.525   17.653   17.010   0.6
+    genblk1[2].genblk1[3].ADD3 (ff_add_8bit_12)
+                                          1.287    4.154    1.442    5.441   0.2
+      ADD (ff_add_NUM_BITS8_12)           1.287    4.154    1.442    5.441   0.2
+    genblk1[2].genblk1[3].ADD2 (ff_add_8bit_13)
+                                          2.256    3.639    1.442    5.895   0.2
+      ADD (ff_add_NUM_BITS8_13)           2.256    3.639    1.442    5.895   0.2
+    genblk1[2].genblk1[3].ADD1 (ff_add_8bit_14)
+                                          1.731    2.755    1.442    4.486   0.2
+      ADD (ff_add_NUM_BITS8_14)           1.731    2.755    1.442    4.486   0.2
+    genblk1[2].genblk1[3].MULT4 (ff_mult_8bit_16)
+                                          6.196   10.328   17.653   16.524   0.6
+      FF_MULT (ff_mult_NUM_BITS8_16)      6.196   10.328   17.653   16.524   0.6
+    genblk1[2].genblk1[3].MULT3 (ff_mult_8bit_17)
+                                          6.065   10.290   17.653   16.355   0.5
+      FF_MULT (ff_mult_NUM_BITS8_17)      6.065   10.290   17.653   16.355   0.5
+    genblk1[2].genblk1[3].MULT2 (ff_mult_8bit_18)
+                                          6.113   10.335   17.653   16.447   0.6
+      FF_MULT (ff_mult_NUM_BITS8_18)      6.113   10.335   17.653   16.447   0.6
+    genblk1[2].genblk1[3].MULT1 (ff_mult_8bit_19)
+                                          4.779    7.871   17.653   12.650   0.4
+      FF_MULT (ff_mult_NUM_BITS8_19)      4.779    7.871   17.653   12.650   0.4
+    genblk1[2].genblk1[2].ADD3 (ff_add_8bit_15)
+                                          1.288    4.167    1.442    5.455   0.2
+      ADD (ff_add_NUM_BITS8_15)           1.288    4.167    1.442    5.455   0.2
+    genblk1[2].genblk1[2].ADD2 (ff_add_8bit_16)
+                                          2.300    3.734    1.442    6.034   0.2
+      ADD (ff_add_NUM_BITS8_16)           2.300    3.734    1.442    6.034   0.2
+    genblk1[2].genblk1[2].ADD1 (ff_add_8bit_17)
+                                          1.903    3.036    1.442    4.939   0.2
+      ADD (ff_add_NUM_BITS8_17)           1.903    3.036    1.442    4.939   0.2
+    genblk1[2].genblk1[2].MULT4 (ff_mult_8bit_20)
+                                          4.636    7.905   17.653   12.541   0.4
+      FF_MULT (ff_mult_NUM_BITS8_20)      4.636    7.905   17.653   12.541   0.4
+    genblk1[2].genblk1[2].MULT3 (ff_mult_8bit_21)
+                                          6.208   10.345   17.653   16.553   0.6
+      FF_MULT (ff_mult_NUM_BITS8_21)      6.208   10.345   17.653   16.553   0.6
+    genblk1[2].genblk1[2].MULT2 (ff_mult_8bit_22)
+                                          6.015   10.200   17.653   16.215   0.5
+      FF_MULT (ff_mult_NUM_BITS8_22)      6.015   10.200   17.653   16.215   0.5
+    genblk1[2].genblk1[2].MULT1 (ff_mult_8bit_23)
+                                          6.307   10.363   17.653   16.670   0.6
+      FF_MULT (ff_mult_NUM_BITS8_23)      6.307   10.363   17.653   16.670   0.6
+    genblk1[2].genblk1[1].ADD3 (ff_add_8bit_18)
+                                          1.284    4.136    1.442    5.420   0.2
+      ADD (ff_add_NUM_BITS8_18)           1.284    4.136    1.442    5.420   0.2
+    genblk1[2].genblk1[1].ADD2 (ff_add_8bit_19)
+                                          2.219    3.608    1.442    5.826   0.2
+      ADD (ff_add_NUM_BITS8_19)           2.219    3.608    1.442    5.826   0.2
+    genblk1[2].genblk1[1].ADD1 (ff_add_8bit_20)
+                                          1.854    2.978    1.442    4.832   0.2
+      ADD (ff_add_NUM_BITS8_20)           1.854    2.978    1.442    4.832   0.2
+    genblk1[2].genblk1[1].MULT4 (ff_mult_8bit_24)
+                                          6.152   10.419   17.653   16.570   0.6
+      FF_MULT (ff_mult_NUM_BITS8_24)      6.152   10.419   17.653   16.570   0.6
+    genblk1[2].genblk1[1].MULT3 (ff_mult_8bit_25)
+                                          4.645    7.916   17.653   12.560   0.4
+      FF_MULT (ff_mult_NUM_BITS8_25)      4.645    7.916   17.653   12.560   0.4
+    genblk1[2].genblk1[1].MULT2 (ff_mult_8bit_26)
+                                          6.159   10.250   17.653   16.409   0.6
+      FF_MULT (ff_mult_NUM_BITS8_26)      6.159   10.250   17.653   16.409   0.6
+    genblk1[2].genblk1[1].MULT1 (ff_mult_8bit_27)
+                                          6.226   10.227   17.653   16.454   0.6
+      FF_MULT (ff_mult_NUM_BITS8_27)      6.226   10.227   17.653   16.454   0.6
+    genblk1[2].genblk1[0].ADD3 (ff_add_8bit_21)
+                                          1.287    4.137    1.442    5.425   0.2
+      ADD (ff_add_NUM_BITS8_21)           1.287    4.137    1.442    5.425   0.2
+    genblk1[2].genblk1[0].ADD2 (ff_add_8bit_22)
+                                          2.177    3.514    1.442    5.690   0.2
+      ADD (ff_add_NUM_BITS8_22)           2.177    3.514    1.442    5.690   0.2
+    genblk1[2].genblk1[0].ADD1 (ff_add_8bit_23)
+                                          1.674    2.683    1.442    4.357   0.1
+      ADD (ff_add_NUM_BITS8_23)           1.674    2.683    1.442    4.357   0.1
+    genblk1[2].genblk1[0].MULT4 (ff_mult_8bit_28)
+                                          6.059   10.286   17.653   16.345   0.5
+      FF_MULT (ff_mult_NUM_BITS8_28)      6.059   10.286   17.653   16.345   0.5
+    genblk1[2].genblk1[0].MULT3 (ff_mult_8bit_29)
+                                          6.163   10.441   17.653   16.604   0.6
+      FF_MULT (ff_mult_NUM_BITS8_29)      6.163   10.441   17.653   16.604   0.6
+    genblk1[2].genblk1[0].MULT2 (ff_mult_8bit_30)
+                                          4.619    7.865   17.653   12.484   0.4
+      FF_MULT (ff_mult_NUM_BITS8_30)      4.619    7.865   17.653   12.484   0.4
+    genblk1[2].genblk1[0].MULT1 (ff_mult_8bit_31)
+                                          6.331   10.261   17.653   16.592   0.6
+      FF_MULT (ff_mult_NUM_BITS8_31)      6.331   10.261   17.653   16.592   0.6
+    genblk1[1].genblk1[3].ADD3 (ff_add_8bit_24)
+                                          1.293    4.175    1.442    5.469   0.2
+      ADD (ff_add_NUM_BITS8_24)           1.293    4.175    1.442    5.469   0.2
+    genblk1[1].genblk1[3].ADD2 (ff_add_8bit_25)
+                                          2.267    3.655    1.442    5.922   0.2
+      ADD (ff_add_NUM_BITS8_25)           2.267    3.655    1.442    5.922   0.2
+    genblk1[1].genblk1[3].ADD1 (ff_add_8bit_26)
+                                          1.734    2.759    1.442    4.493   0.2
+      ADD (ff_add_NUM_BITS8_26)           1.734    2.759    1.442    4.493   0.2
+    genblk1[1].genblk1[3].MULT4 (ff_mult_8bit_32)
+                                          6.181   10.299   17.653   16.480   0.6
+      FF_MULT (ff_mult_NUM_BITS8_32)      6.181   10.299   17.653   16.480   0.6
+    genblk1[1].genblk1[3].MULT3 (ff_mult_8bit_33)
+                                          6.107   10.360   17.653   16.467   0.6
+      FF_MULT (ff_mult_NUM_BITS8_33)      6.107   10.360   17.653   16.467   0.6
+    genblk1[1].genblk1[3].MULT2 (ff_mult_8bit_34)
+                                          6.108   10.342   17.653   16.449   0.6
+      FF_MULT (ff_mult_NUM_BITS8_34)      6.108   10.342   17.653   16.449   0.6
+    genblk1[1].genblk1[3].MULT1 (ff_mult_8bit_35)
+                                          4.783    7.883   17.653   12.666   0.4
+      FF_MULT (ff_mult_NUM_BITS8_35)      4.783    7.883   17.653   12.666   0.4
+    genblk1[1].genblk1[2].ADD3 (ff_add_8bit_27)
+                                          1.291    4.179    1.442    5.471   0.2
+      ADD (ff_add_NUM_BITS8_27)           1.291    4.179    1.442    5.471   0.2
+    genblk1[1].genblk1[2].ADD2 (ff_add_8bit_28)
+                                          2.304    3.739    1.442    6.043   0.2
+      ADD (ff_add_NUM_BITS8_28)           2.304    3.739    1.442    6.043   0.2
+    genblk1[1].genblk1[2].ADD1 (ff_add_8bit_29)
+                                          1.900    3.031    1.442    4.931   0.2
+      ADD (ff_add_NUM_BITS8_29)           1.900    3.031    1.442    4.931   0.2
+    genblk1[1].genblk1[2].MULT4 (ff_mult_8bit_36)
+                                          4.620    7.873   17.653   12.493   0.4
+      FF_MULT (ff_mult_NUM_BITS8_36)      4.620    7.873   17.653   12.493   0.4
+    genblk1[1].genblk1[2].MULT3 (ff_mult_8bit_37)
+                                          6.254   10.423   17.653   16.677   0.6
+      FF_MULT (ff_mult_NUM_BITS8_37)      6.254   10.423   17.653   16.677   0.6
+    genblk1[1].genblk1[2].MULT2 (ff_mult_8bit_38)
+                                          6.015   10.204   17.653   16.219   0.5
+      FF_MULT (ff_mult_NUM_BITS8_38)      6.015   10.204   17.653   16.219   0.5
+    genblk1[1].genblk1[2].MULT1 (ff_mult_8bit_39)
+                                          6.320   10.380   17.653   16.700   0.6
+      FF_MULT (ff_mult_NUM_BITS8_39)      6.320   10.380   17.653   16.700   0.6
+    genblk1[1].genblk1[1].ADD3 (ff_add_8bit_30)
+                                          1.294    4.169    1.442    5.463   0.2
+      ADD (ff_add_NUM_BITS8_30)           1.294    4.169    1.442    5.463   0.2
+    genblk1[1].genblk1[1].ADD2 (ff_add_8bit_31)
+                                          2.236    3.635    1.442    5.871   0.2
+      ADD (ff_add_NUM_BITS8_31)           2.236    3.635    1.442    5.871   0.2
+    genblk1[1].genblk1[1].ADD1 (ff_add_8bit_32)
+                                          1.854    2.978    1.442    4.833   0.2
+      ADD (ff_add_NUM_BITS8_32)           1.854    2.978    1.442    4.833   0.2
+    genblk1[1].genblk1[1].MULT4 (ff_mult_8bit_40)
+                                          6.127   10.373   17.653   16.500   0.6
+      FF_MULT (ff_mult_NUM_BITS8_40)      6.127   10.373   17.653   16.500   0.6
+    genblk1[1].genblk1[1].MULT3 (ff_mult_8bit_41)
+                                          4.685    7.982   17.653   12.666   0.4
+      FF_MULT (ff_mult_NUM_BITS8_41)      4.685    7.982   17.653   12.666   0.4
+    genblk1[1].genblk1[1].MULT2 (ff_mult_8bit_42)
+                                          6.141   10.231   17.653   16.372   0.6
+      FF_MULT (ff_mult_NUM_BITS8_42)      6.141   10.231   17.653   16.372   0.6
+    genblk1[1].genblk1[1].MULT1 (ff_mult_8bit_43)
+                                          6.240   10.252   17.653   16.492   0.6
+      FF_MULT (ff_mult_NUM_BITS8_43)      6.240   10.252   17.653   16.492   0.6
+    genblk1[1].genblk1[0].ADD3 (ff_add_8bit_33)
+                                          1.296    4.165    1.442    5.461   0.2
+      ADD (ff_add_NUM_BITS8_33)           1.296    4.165    1.442    5.461   0.2
+    genblk1[1].genblk1[0].ADD2 (ff_add_8bit_34)
+                                          2.187    3.529    1.442    5.716   0.2
+      ADD (ff_add_NUM_BITS8_34)           2.187    3.529    1.442    5.716   0.2
+    genblk1[1].genblk1[0].ADD1 (ff_add_8bit_35)
+                                          1.675    2.686    1.442    4.361   0.1
+      ADD (ff_add_NUM_BITS8_35)           1.675    2.686    1.442    4.361   0.1
+    genblk1[1].genblk1[0].MULT4 (ff_mult_8bit_44)
+                                          6.032   10.237   17.653   16.269   0.5
+      FF_MULT (ff_mult_NUM_BITS8_44)      6.032   10.237   17.653   16.269   0.5
+    genblk1[1].genblk1[0].MULT3 (ff_mult_8bit_45)
+                                          6.202   10.501   17.653   16.703   0.6
+      FF_MULT (ff_mult_NUM_BITS8_45)      6.202   10.501   17.653   16.703   0.6
+    genblk1[1].genblk1[0].MULT2 (ff_mult_8bit_46)
+                                          4.605    7.844   17.653   12.449   0.4
+      FF_MULT (ff_mult_NUM_BITS8_46)      4.605    7.844   17.653   12.449   0.4
+    genblk1[1].genblk1[0].MULT1 (ff_mult_8bit_47)
+                                          6.361   10.300   17.653   16.660   0.6
+      FF_MULT (ff_mult_NUM_BITS8_47)      6.361   10.300   17.653   16.660   0.6
+    genblk1[0].genblk1[3].ADD3 (ff_add_8bit_36)
+                                          1.296    4.186    1.442    5.482   0.2
+      ADD (ff_add_NUM_BITS8_36)           1.296    4.186    1.442    5.482   0.2
+    genblk1[0].genblk1[3].ADD2 (ff_add_8bit_37)
+                                          2.278    3.673    1.442    5.951   0.2
+      ADD (ff_add_NUM_BITS8_37)           2.278    3.673    1.442    5.951   0.2
+    genblk1[0].genblk1[3].ADD1 (ff_add_8bit_38)
+                                          1.743    2.771    1.442    4.514   0.2
+      ADD (ff_add_NUM_BITS8_38)           1.743    2.771    1.442    4.514   0.2
+    genblk1[0].genblk1[3].MULT4 (ff_mult_8bit_48)
+                                          6.167   10.277   17.653   16.445   0.6
+      FF_MULT (ff_mult_NUM_BITS8_48)      6.167   10.277   17.653   16.445   0.6
+    genblk1[0].genblk1[3].MULT3 (ff_mult_8bit_49)
+                                          6.122   10.385   17.653   16.507   0.6
+      FF_MULT (ff_mult_NUM_BITS8_49)      6.122   10.385   17.653   16.507   0.6
+    genblk1[0].genblk1[3].MULT2 (ff_mult_8bit_50)
+                                          6.214   10.530   17.653   16.743   0.6
+      FF_MULT (ff_mult_NUM_BITS8_50)      6.214   10.530   17.653   16.743   0.6
+    genblk1[0].genblk1[3].MULT1 (ff_mult_8bit_51)
+                                          4.747    7.819   17.653   12.566   0.4
+      FF_MULT (ff_mult_NUM_BITS8_51)      4.747    7.819   17.653   12.566   0.4
+    genblk1[0].genblk1[2].ADD3 (ff_add_8bit_39)
+                                          1.298    4.200    1.442    5.498   0.2
+      ADD (ff_add_NUM_BITS8_39)           1.298    4.200    1.442    5.498   0.2
+    genblk1[0].genblk1[2].ADD2 (ff_add_8bit_40)
+                                          2.311    3.751    1.442    6.063   0.2
+      ADD (ff_add_NUM_BITS8_40)           2.311    3.751    1.442    6.063   0.2
+    genblk1[0].genblk1[2].ADD1 (ff_add_8bit_41)
+                                          1.904    3.035    1.442    4.939   0.2
+      ADD (ff_add_NUM_BITS8_41)           1.904    3.035    1.442    4.939   0.2
+    genblk1[0].genblk1[2].MULT4 (ff_mult_8bit_52)
+                                          4.628    7.893   17.653   12.521   0.4
+      FF_MULT (ff_mult_NUM_BITS8_52)      4.628    7.893   17.653   12.521   0.4
+    genblk1[0].genblk1[2].MULT3 (ff_mult_8bit_53)
+                                          6.274   10.443   17.653   16.716   0.6
+      FF_MULT (ff_mult_NUM_BITS8_53)      6.274   10.443   17.653   16.716   0.6
+    genblk1[0].genblk1[2].MULT2 (ff_mult_8bit_54)
+                                          6.131   10.408   17.653   16.539   0.6
+      FF_MULT (ff_mult_NUM_BITS8_54)      6.131   10.408   17.653   16.539   0.6
+    genblk1[0].genblk1[2].MULT1 (ff_mult_8bit_55)
+                                          6.269   10.296   17.653   16.564   0.6
+      FF_MULT (ff_mult_NUM_BITS8_55)      6.269   10.296   17.653   16.564   0.6
+    genblk1[0].genblk1[1].ADD3 (ff_add_8bit_42)
+                                          1.294    4.170    1.442    5.464   0.2
+      ADD (ff_add_NUM_BITS8_42)           1.294    4.170    1.442    5.464   0.2
+    genblk1[0].genblk1[1].ADD2 (ff_add_8bit_43)
+                                          2.239    3.640    1.442    5.878   0.2
+      ADD (ff_add_NUM_BITS8_43)           2.239    3.640    1.442    5.878   0.2
+    genblk1[0].genblk1[1].ADD1 (ff_add_8bit_44)
+                                          1.857    2.979    1.442    4.836   0.2
+      ADD (ff_add_NUM_BITS8_44)           1.857    2.979    1.442    4.836   0.2
+    genblk1[0].genblk1[1].MULT4 (ff_mult_8bit_56)
+                                          6.133   10.388   17.653   16.521   0.6
+      FF_MULT (ff_mult_NUM_BITS8_56)      6.133   10.388   17.653   16.521   0.6
+    genblk1[0].genblk1[1].MULT3 (ff_mult_8bit_57)
+                                          4.686    7.982   17.653   12.667   0.4
+      FF_MULT (ff_mult_NUM_BITS8_57)      4.686    7.982   17.653   12.667   0.4
+    genblk1[0].genblk1[1].MULT2 (ff_mult_8bit_58)
+                                          6.270   10.456   17.653   16.726   0.6
+      FF_MULT (ff_mult_NUM_BITS8_58)      6.270   10.456   17.653   16.726   0.6
+    genblk1[0].genblk1[1].MULT1 (ff_mult_8bit_59)
+                                          6.186   10.155   17.653   16.341   0.5
+      FF_MULT (ff_mult_NUM_BITS8_59)      6.186   10.155   17.653   16.341   0.5
+    genblk1[0].genblk1[0].ADD3 (ff_add_8bit_45)
+                                          1.295    4.163    1.442    5.458   0.2
+      ADD (ff_add_NUM_BITS8_45)           1.295    4.163    1.442    5.458   0.2
+    genblk1[0].genblk1[0].ADD2 (ff_add_8bit_46)
+                                          2.189    3.534    1.442    5.723   0.2
+      ADD (ff_add_NUM_BITS8_46)           2.189    3.534    1.442    5.723   0.2
+    genblk1[0].genblk1[0].ADD1 (ff_add_8bit_47)
+                                          1.679    2.689    1.442    4.368   0.1
+      ADD (ff_add_NUM_BITS8_47)           1.679    2.689    1.442    4.368   0.1
+    genblk1[0].genblk1[0].MULT4 (ff_mult_8bit_60)
+                                          6.041   10.259   17.653   16.299   0.5
+      FF_MULT (ff_mult_NUM_BITS8_60)      6.041   10.259   17.653   16.299   0.5
+    genblk1[0].genblk1[0].MULT3 (ff_mult_8bit_61)
+                                          6.217   10.525   17.653   16.742   0.6
+      FF_MULT (ff_mult_NUM_BITS8_61)      6.217   10.525   17.653   16.742   0.6
+    genblk1[0].genblk1[0].MULT2 (ff_mult_8bit_62)
+                                          4.690    8.000   17.653   12.689   0.4
+      FF_MULT (ff_mult_NUM_BITS8_62)      4.690    8.000   17.653   12.689   0.4
+    genblk1[0].genblk1[0].MULT1 (ff_mult_8bit_63)
+                                          6.299   10.204   17.653   16.503   0.6
+      FF_MULT (ff_mult_NUM_BITS8_63)      6.299   10.204   17.653   16.503   0.6
+  Invsub_block (InvSubstitute)          681.931  723.254  520.178 1.41e+03  47.2
+    SBox16 (InvSBox_0)                   42.322   44.891   32.511   87.213   2.9
+    SBox15 (InvSBox_1)                   42.615   45.140   32.511   87.756   2.9
+    SBox14 (InvSBox_2)                   42.336   44.941   32.511   87.277   2.9
+    SBox13 (InvSBox_3)                   42.311   44.867   32.511   87.178   2.9
+    SBox12 (InvSBox_4)                   42.647   45.182   32.511   87.829   3.0
+    SBox11 (InvSBox_5)                   42.951   45.654   32.511   88.605   3.0
+    SBox10 (InvSBox_6)                   42.787   45.374   32.511   88.161   3.0
+    SBox9 (InvSBox_7)                    42.668   45.273   32.511   87.941   3.0
+    SBox8 (InvSBox_8)                    43.192   45.841   32.511   89.033   3.0
+    SBox7 (InvSBox_9)                    42.819   45.393   32.511   88.211   3.0
+    SBox6 (InvSBox_10)                   42.370   44.920   32.511   87.291   2.9
+    SBox5 (InvSBox_11)                   42.113   44.610   32.511   86.724   2.9
+    SBox4 (InvSBox_12)                   42.483   45.028   32.511   87.511   2.9
+    SBox3 (InvSBox_13)                   43.180   45.782   32.511   88.962   3.0
+    SBox2 (InvSBox_14)                   42.543   45.147   32.511   87.690   2.9
+    SBox1 (InvSBox_15)                   42.594   45.211   32.511   87.805   2.9
+  Invshift_block (InvShiftRows)           0.000    0.000    0.000    0.000   0.0
+1

@@ -1,0 +1,107 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : ahb_slave_2
+Version: K-2015.06-SP1
+Date   : Fri Apr 27 02:24:59 2018
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: state_reg[1]
+              (rising edge-triggered flip-flop)
+  Endpoint: signal (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  state_reg[1]/CLK (DFFSR)                 0.00       0.00 r
+  state_reg[1]/Q (DFFSR)                   0.51       0.51 r
+  U1451/Y (INVX1)                          0.27       0.78 f
+  U1450/Y (NAND3X1)                        0.24       1.02 r
+  U1449/Y (INVX1)                          0.25       1.27 f
+  U1447/Y (NAND3X1)                        0.31       1.57 r
+  U961/Y (INVX1)                           0.07       1.64 f
+  signal (out)                             0.00       1.64 f
+  data arrival time                                   1.64
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : area
+Design : ahb_slave_2
+Version: K-2015.06-SP1
+Date   : Fri Apr 27 02:24:59 2018
+****************************************
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+Number of ports:                          328
+Number of nets:                          1265
+Number of cells:                         1197
+Number of combinational cells:            644
+Number of sequential cells:               553
+Number of macros/black boxes:               0
+Number of buf/inv:                        316
+Number of references:                      10
+
+Combinational area:             184284.000000
+Buf/Inv area:                    46080.000000
+Noncombinational area:          439488.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                623772.000000
+Total area:                 undefined
+1
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : ahb_slave_2
+Version: K-2015.06-SP1
+Date   : Fri Apr 27 02:24:59 2018
+****************************************
+
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+ahb_slave_2                               1.853   35.588  197.473   37.442 100.0
+1

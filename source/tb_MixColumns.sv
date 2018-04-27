@@ -6,16 +6,16 @@ localparam CLOCK_PERIOD = 10;
 reg tb_clk;
 reg tb_n_rst;
 reg tb_enable;
-reg [131:0] tb_data_in;
-reg [3:0] tb_header_out;
-reg [131:0] tb_data_out;
+reg [127:0] tb_data_in;
+//reg [3:0] tb_header_out;
+reg [127:0] tb_data_out;
 
 reg [3:0] [3:0] [7:0] tb_array_in;
 reg [3:0] [3:0] [7:0] tb_array_out;
 
 integer i, j, k, l;
 
-MixColumns DUT(.clk(tb_clk), .n_rst(tb_n_rst), .enable(tb_enable), .data_in(tb_data_in), .header_out(tb_header_out), .data_out(tb_data_out));
+MixColumns DUT(.clk(tb_clk), .n_rst(tb_n_rst), .enable(tb_enable), .data_in(tb_data_in), .data_out(tb_data_out));
 
 always
 begin
@@ -44,7 +44,7 @@ begin
 
 	//Sample Data
 
-	tb_data_in = 'h7d4bf5d30000000000000000000000000;
+	tb_data_in = 'hd4bf5d30000000000000000000000000;
 
 	@(posedge tb_clk);
 	
@@ -70,9 +70,9 @@ begin
 	else
 		$error("Test #1 Failed: tb_array_out[0][3] expected e5, got %h", tb_array_out[0][3]);
 	
-	assert(tb_header_out == 'd7)
-	else
-		$error("Test #1 Failed: tb_header_out expected 7, got %d", tb_header_out);
+	// assert(tb_header_out == 'd7)
+	// else
+	// 	$error("Test #1 Failed: tb_header_out expected 7, got %d", tb_header_out);
 end
 
 endmodule

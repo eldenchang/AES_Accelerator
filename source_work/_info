@@ -8,9 +8,125 @@ z2
 !i10f 100
 cModel Technology
 Z0 d/home/ecegrid/a/mg135/ece337/project
-vflex_counter
+vcontroller
 Z1 DXx6 sv_std 3 std 0 22 <EOTafDcUY:cQeO^ICn]m3
+!s110 1524800139
+!i10b 1
+!s100 bL_W]51Vb9@Dj>gXjlOWU1
+IX@Nhc_eE3EkWj?4hAUlTS2
 Z2 V`JN@9S9cnhjKRR_L]QIcM3
+!s105 controller_sv_unit
+S1
+R0
+w1524691828
+8source/controller.sv
+Fsource/controller.sv
+L0 2
+Z3 OL;L;10.3b;59
+r1
+!s85 0
+31
+!s108 1524800139.458588
+!s107 source/controller.sv|
+!s90 -sv|-work|source_work|source/controller.sv|
+!i113 0
+Z4 o-sv -work source_work
+Z5 tCoverage 63 CoverExcludeDefault 1 CoverOpt 1 CoverShortCircuit 0
+vff_add
+R1
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 kfEcO^zGh<3DGSz>_QWDW3
+IPM`YmM=kn_DD8_SIo9mMI3
+!s105 ff_add_sv_unit
+S1
+R0
+w1524234210
+8source/ff_add.sv
+Fsource/ff_add.sv
+L0 1
+R3
+!s108 1524778784.735162
+!s107 source/ff_add.sv|
+!s90 -sv|-work|source_work|source/ff_add.sv|
+!i113 0
+R4
+R5
+vff_add_8bit
+R1
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 [BSVQEf5H>nHFmnXo]`Zc3
+IA[<A6d5;:[d@h;Vm<nZjm1
+!s105 ff_add_8bit_sv_unit
+S1
+R0
+w1524234202
+8source/ff_add_8bit.sv
+Fsource/ff_add_8bit.sv
+L0 1
+R3
+!s108 1524778744.232435
+!s107 source/ff_add_8bit.sv|
+!s90 -sv|-work|source_work|source/ff_add_8bit.sv|
+!i113 0
+R4
+R5
+vff_mult
+R1
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 0ljoAai`^1zF5j_V2lEhU0
+IjnG>3311gcRN?hcJ2Jz4Z0
+!s105 ff_mult_sv_unit
+S1
+R0
+w1524234193
+8source/ff_mult.sv
+Fsource/ff_mult.sv
+L0 1
+R3
+!s108 1524778795.365490
+!s107 source/ff_mult.sv|
+!s90 -sv|-work|source_work|source/ff_mult.sv|
+!i113 0
+R4
+R5
+vff_mult_8bit
+R1
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 UiEg[1`J[50?eM`KM[0lQ1
+Ii:TCn54zoI<l8Z7dkERgk0
+!s105 ff_mult_8bit_sv_unit
+S1
+R0
+w1524234187
+8source/ff_mult_8bit.sv
+Fsource/ff_mult_8bit.sv
+L0 1
+R3
+!s108 1524778732.322379
+!s107 source/ff_mult_8bit.sv|
+!s90 -sv|-work|source_work|source/ff_mult_8bit.sv|
+!i113 0
+R4
+R5
+vflex_counter
+R1
+R2
 r1
 !s85 0
 31
@@ -24,13 +140,13 @@ w1522366339
 8source/flex_counter.sv
 Fsource/flex_counter.sv
 L0 8
-Z3 OL;L;10.3b;59
+R3
 !s108 1524708901.107775
 !s107 source/flex_counter.sv|
 !s90 -sv|-work|source_work|source/flex_counter.sv|
 !i113 0
-Z4 o-sv -work source_work
-Z5 tCoverage 63 CoverExcludeDefault 1 CoverOpt 1 CoverShortCircuit 0
+R4
+R5
 vflexbyte_stp_sr
 R1
 R2
@@ -103,6 +219,30 @@ R10
 R4
 R5
 n@gen@round@keys_core
+vMixColumns
+R1
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 UFWb_A6TndmSP@>HP[JS_3
+IKjV_ZjfE@ePOR`BUnDz230
+!s105 MixColumns_sv_unit
+S1
+R0
+w1524790493
+8source/MixColumns.sv
+Fsource/MixColumns.sv
+L0 1
+R3
+!s108 1524790505.228470
+!s107 source/MixColumns.sv|
+!s90 -sv|-work|source_work|source/MixColumns.sv|
+!i113 0
+R4
+R5
+n@mix@columns
 vSBox
 R1
 R2
@@ -175,6 +315,30 @@ R3
 R4
 R5
 ntb_@gen@round@keys
+vtb_MixColumns
+R1
+R2
+r1
+!s85 0
+31
+!i10b 1
+!s100 LVMj209Kgdg>Ng3So2M4U1
+I5hDDDkkW9D2^3<7hOTWli0
+!s105 tb_MixColumns_sv_unit
+S1
+R0
+w1524790697
+8source/tb_MixColumns.sv
+Fsource/tb_MixColumns.sv
+L0 2
+R3
+!s108 1524790711.118598
+!s107 source/tb_MixColumns.sv|
+!s90 -sv|-work|source_work|source/tb_MixColumns.sv|
+!i113 0
+R4
+R5
+ntb_@mix@columns
 vtb_Substitute
 R1
 R2

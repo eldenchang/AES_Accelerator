@@ -1,0 +1,9 @@
+QuestaSim-64 vlog 10.3b Compiler 2014.05 May 29 2014
+Start time: 21:29:01 on Apr 26,2018
+vlog -sv -work mapped_work mapped/tx_sr.v 
+-- Compiling module tx_sr
+
+Top level modules:
+	tx_sr
+End time: 21:29:01 on Apr 26,2018, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

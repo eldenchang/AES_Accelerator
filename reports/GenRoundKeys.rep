@@ -1,0 +1,143 @@
+Information: Building the design 'SBox'. (HDL-193)
+Warning: Cannot find the design 'SBox' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'SBox' in 'GenRoundKeys'. (LINK-5)
+Warning: Design 'GenRoundKeys' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Updating design information... (UID-85)
+Warning: Design 'GenRoundKeys' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : GenRoundKeys
+Version: K-2015.06-SP1
+Date   : Wed Apr 25 21:37:50 2018
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: cur_round[0]
+              (input port)
+  Endpoint: cur_key[6] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  cur_round[0] (in)                        0.00       0.00 f
+  U15316/Y (OR2X1)                         0.39       0.39 f
+  U15315/Y (XOR2X1)                        0.31       0.70 r
+  U15305/Y (NAND3X1)                       0.05       0.75 f
+  U15304/Y (INVX1)                         0.21       0.96 r
+  U9094/Y (AND2X2)                         0.44       1.40 r
+  U9143/Y (INVX8)                          0.70       2.10 f
+  U15302/Y (OAI21X1)                       0.32       2.41 r
+  U9113/Y (INVX2)                          0.63       3.04 f
+  U15301/Y (NAND2X1)                       0.47       3.50 r
+  U15296/Y (NOR2X1)                        0.28       3.79 f
+  U15295/Y (XNOR2X1)                       0.30       4.09 r
+  U15294/Y (NOR2X1)                        0.25       4.34 f
+  U15281/Y (NAND2X1)                       0.77       5.11 r
+  U9210/Y (INVX4)                          1.04       6.15 f
+  U9108/Y (AND2X2)                         1.33       7.48 f
+  U9130/Y (INVX4)                          0.92       8.40 r
+  U15143/Y (OAI22X1)                       0.09       8.49 f
+  U15142/Y (OR2X1)                         0.29       8.78 f
+  U15141/Y (MUX2X1)                        0.13       8.91 r
+  U15140/Y (INVX1)                         0.20       9.10 f
+  U15139/Y (MUX2X1)                        0.20       9.31 r
+  U15138/Y (MUX2X1)                        0.18       9.48 f
+  U14371/Y (MUX2X1)                        0.34       9.83 r
+  U13413/Y (INVX1)                         0.17       9.99 f
+  U13411/Y (MUX2X1)                        0.17      10.16 r
+  U13195/Y (INVX1)                         0.21      10.37 f
+  U12976/Y (AOI22X1)                       0.14      10.51 r
+  U12975/Y (OAI21X1)                       0.17      10.67 f
+  U12764/Y (MUX2X1)                        0.13      10.80 r
+  U12763/Y (INVX1)                         0.05      10.85 f
+  cur_key[6] (out)                         0.00      10.85 f
+  data arrival time                                  10.85
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+Warning: Design 'GenRoundKeys' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+Report : area
+Design : GenRoundKeys
+Version: K-2015.06-SP1
+Date   : Wed Apr 25 21:37:50 2018
+****************************************
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+Number of ports:                          392
+Number of nets:                          9342
+Number of cells:                         9179
+Number of combinational cells:           6244
+Number of sequential cells:              2935
+Number of macros/black boxes:               0
+Number of buf/inv:                       1923
+Number of references:                      22
+
+Combinational area:            1829943.000000
+Buf/Inv area:                   288000.000000
+Noncombinational area:         2331360.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:               4161303.000000
+Total area:                 undefined
+
+Information: This design contains black box (unknown) components. (RPT-8)
+1
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+Warning: Design has unannotated black box outputs. (PWR-428)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : GenRoundKeys
+Version: K-2015.06-SP1
+Date   : Wed Apr 25 21:37:51 2018
+****************************************
+
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+GenRoundKeys                            244.352  350.036 1.29e+03  594.390 100.0
+1

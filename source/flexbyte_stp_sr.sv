@@ -1,7 +1,7 @@
 module flexbyte_stp_sr
 #(
 	parameter MSB = 1, //boolean, is MSB coming first?
-	parameter NUM_BYTES_IN = 8, //number of bytes being passed to shift register
+	parameter NUM_BYTES_IN = 4, //number of bytes being passed to shift register
 	parameter NUM_BYTES_OUT = 16
 )
 (

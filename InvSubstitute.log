@@ -1,0 +1,302 @@
+Synthesizing design: InvSubstitute.sv
+dc_shell-t -x "source -echo do_mapping.tcl"
+                                        
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+                                        
+               Version K-2015.06-SP1 for linux64 - Jul 21, 2015 
+                                        
+                    Copyright (c) 1988 - 2015 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+# Step 1:  Read in the source file
+analyze -format sverilog -lib WORK { InvSubstitute.sv}
+Running PRESTO HDLC
+Compiling source file ./source/InvSubstitute.sv
+Presto compilation completed successfully.
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+Loading db file '/package/eda/synopsys/syn-K-2015.06-SP1/libraries/syn/dw_foundation.sldb'
+elaborate InvSubstitute -lib WORK
+Loading db file '/package/eda/synopsys/syn-K-2015.06-SP1/libraries/syn/gtech.db'
+Loading db file '/package/eda/synopsys/syn-K-2015.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'osu05_stdcells'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'InvSubstitute'.
+Information: Building the design 'InvSBox'. (HDL-193)
+Warning: Cannot find the design 'InvSBox' in the library 'WORK'. (LBR-1)
+Warning: Design 'InvSubstitute' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+uniquify
+Warning: Design 'InvSubstitute' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+# Step 2: Set design constraints
+# Uncomment below to set timing, area, power, etc. constraints
+# set_max_delay <delay> -from "<input>" -to "<output>"
+# set_max_area <area>
+# set_max_total_power <power> mW
+# Step 3: Compile the design
+compile -map_effort medium
+Warning: Design 'InvSubstitute' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | K-2015.06-DWBB_201506.1 |     *     |
+| Licensed DW Building Blocks        | K-2015.06-DWBB_201506.1 |           |
+============================================================================
+
+
+Information: There are 128 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'InvSubstitute'
+Information: Building the design 'InvSBox'. (HDL-193)
+Warning: Cannot find the design 'InvSBox' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'InvSBox' in 'InvSubstitute'. (LINK-5)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'InvSubstitute' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+# Step 4: Output reports
+report_timing -path full -delay max -max_paths 1 -nworst 1 > reports/InvSubstitute.rep
+report_area >> reports/InvSubstitute.rep
+report_power -hier >> reports/InvSubstitute.rep
+# Step 5: Output final VHDL and Verilog files
+write_file -format verilog -hierarchy -output "mapped/InvSubstitute.v"
+Warning: Design 'InvSubstitute' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Writing verilog file '/home/ecegrid/a/mg135/ece337/project/mapped/InvSubstitute.v'.
+echo "\nScript Done\n"
+
+Script Done
+
+echo "\nChecking Design\n"
+
+Checking Design
+
+check_design
+Warning: Design 'InvSubstitute' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06-SP1
+Date:        Thu Apr 26 21:24:30 2018
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                    128
+    Multiply driven inputs (LINT-6)                               128
+--------------------------------------------------------------------------------
+
+Warning: In design 'InvSubstitute', input port 'data_in[127]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[126]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[125]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[124]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[123]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[122]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[121]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[120]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[119]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[118]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[117]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[116]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[115]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[114]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[113]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[112]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[111]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[110]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[109]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[108]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[107]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[106]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[105]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[104]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[103]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[102]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[101]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[100]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[99]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[98]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[97]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[96]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[95]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[94]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[93]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[92]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[91]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[90]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[89]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[88]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[87]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[86]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[85]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[84]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[83]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[82]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[81]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[80]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[79]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[78]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[77]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[76]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[75]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[74]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[73]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[72]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[71]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[70]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[69]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[68]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[67]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[66]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[65]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[64]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[63]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[62]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[61]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[60]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[59]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[58]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[57]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[56]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[55]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[54]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[53]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[52]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[51]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[50]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[49]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[48]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[47]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[46]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[45]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[44]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[43]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[42]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[41]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[40]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[39]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[38]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[37]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[36]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[35]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[34]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[33]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[32]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[31]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[30]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[29]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[28]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[27]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[26]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[25]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[24]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[23]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[22]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[21]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[20]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[19]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[18]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[17]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[16]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[15]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[14]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[13]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[12]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[11]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[10]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[9]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[8]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'InvSubstitute', input port 'data_in[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+quit
+
+Thank you...
+Done
+
+

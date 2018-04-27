@@ -1,0 +1,33 @@
+# //  Questa Sim-64
+# //  Version 10.3b linux_x86_64 May 29 2014
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim -Lf /home/ecegrid/a/ece337/Course_Prod/IP_Libs/Lab_IP_Lib/Vsim -L /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work -L /home/ecegrid/a/ece337/Class0.5u/GOLD_LIB "+no_glitch_msg" -coverage -novopt -i -t ps source_work/.tb_Substitute 
+# Start time: 17:20:02 on Apr 26,2018
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Refreshing /home/ecegrid/a/mg135/ece337/project/source_work.tb_Substitute
+# Loading sv_std.std
+# Loading source_work/.tb_Substitute
+# Refreshing /home/ecegrid/a/mg135/ece337/project/source_work.Substitute
+# Loading source_work/.Substitute
+# Loading source_work/.flex_counter
+# Loading source_work/.SBox
+# Loading source_work/.flexbyte_stp_sr
+# ** Warning: (vsim-3017) source/Substitute.sv(22): [TFMPC] - Too few port connections. Expected 7, found 5.
+#         Region: /tb_Substitute/DUT/Counter
+# ** Warning: (vsim-3722) source/Substitute.sv(22): [TFMPC] - Missing connection for port 'clear'.
+# ** Warning: (vsim-3722) source/Substitute.sv(22): [TFMPC] - Missing connection for port 'count_out'.
+add wave *
+run 2000 ns
+# ** Info: Test #1: Substitution successful. Expected 7638293C31BFC33F5C4EEACEA4BC12816, got 638293c31bfc33f5c4eeacea4bc12816
+#    Time: 51 ns  Scope: tb_Substitute File: source/tb_Substitute.sv Line: 41
+# ** Info: Test #1: Substitution successful. Expected 7638293C31BFC33F5C4EEACEA4BC12816, got 638293c31bfc33f5c4eeacea4bc12816
+#    Time: 71 ns  Scope: tb_Substitute File: source/tb_Substitute.sv Line: 49
+# End time: 17:22:18 on Apr 26,2018, Elapsed time: 0:02:16
+# Errors: 0, Warnings: 4

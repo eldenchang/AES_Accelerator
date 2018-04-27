@@ -1,0 +1,9 @@
+QuestaSim-64 vlog 10.3b Compiler 2014.05 May 29 2014
+Start time: 02:07:01 on Apr 27,2018
+vlog -sv -work mapped_work mapped/ahb_slave.v 
+-- Compiling module ahb_slave
+
+Top level modules:
+	ahb_slave
+End time: 02:07:01 on Apr 27,2018, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

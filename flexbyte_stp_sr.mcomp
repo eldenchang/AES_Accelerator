@@ -1,0 +1,9 @@
+QuestaSim-64 vlog 10.3b Compiler 2014.05 May 29 2014
+Start time: 23:18:51 on Apr 26,2018
+vlog -sv -work mapped_work mapped/flexbyte_stp_sr.v 
+-- Compiling module flexbyte_stp_sr
+
+Top level modules:
+	flexbyte_stp_sr
+End time: 23:18:51 on Apr 26,2018, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0

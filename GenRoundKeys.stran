@@ -1,0 +1,121 @@
+# //  Questa Sim-64
+# //  Version 10.3b linux_x86_64 May 29 2014
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim -Lf /home/ecegrid/a/ece337/Course_Prod/IP_Libs/Lab_IP_Lib/Vsim -L /home/ecegrid/a/ece337/Course_Prod/Cell_Libs/AMI_05/vhdl_work -L /home/ecegrid/a/ece337/Class0.5u/GOLD_LIB "+no_glitch_msg" -coverage -novopt -i -t ps source_work/.tb_GenRoundKeys 
+# Start time: 21:38:12 on Apr 25,2018
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading source_work/.tb_GenRoundKeys
+# Refreshing /home/ecegrid/a/mg135/ece337/project/source_work.GenRoundKeys
+# Loading source_work/.GenRoundKeys
+# Loading source_work/.SBox
+add wave *
+run 2000 ns
+# ** Error: Test #1 Key generated failed: expected 6d616868025158583261686802515858, got 62636363626363636263636362636363
+#    Time: 136 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 66
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 136 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 69
+# ** Error: Test #1 Key generated failed: expected be0b021fbc5a5a478e3b322f8c6a6a77, got 37313193f3f7f75537313193f3f7f754
+#    Time: 146 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 80
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 146 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 83
+# ** Error: Test #1 Key generated failed: expected b809f77b0453ad3c8a689f130602f564, got 425cd141a5b33febcbd15ccc2c3eb264
+#    Time: 156 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 94
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 156 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 97
+# ** Error: Test #1 Key generated failed: expected c7efb414c3bc192849d4863b4fd6735f got 7036d3dc3b50ac0bacf21593f48f7158
+#    Time: 166 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 107
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 166 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 110
+# ** Error: Test #1 Key generated failed: expected 21607b90e2dc62b8ab08e483e4de97dc, got f2e2b88f8443e098dda7cbbf34b92906
+#    Time: 176 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 120
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 176 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 123
+# ** Error: Test #1 Key generated failed: expected 1ce8fdf9fe349f41553c7bc2b1e2ec1e, got 8c2970a284aeb1933fe126ed569374ef
+#    Time: 186 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 133
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 186 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 136
+# ** Error: Test #1 Key generated failed: expected c4268f313a1210706f2e6bb2decc87ac, got 5d45e1cd541882eb2bdacf3186fc26db
+#    Time: 206 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 147
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 206 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 150
+# ** Error: Test #1 Key generated failed: expected 0f311e2c35230e5c5a0d65ee84c1e242, got 7c81999dd4b09c4b830502288efd4f90
+#    Time: 226 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 161
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 226 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 164
+# ** Error: Test #1 Key generated failed: expected 6ca93273598a3c2f038759c18746bb83, got d4d8e28a7db9da1d7bb3de4c6649410e
+#    Time: 246 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 175
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 246 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 178
+# ** Error: Test #1 Key generated failed: expected 0043de6459c9e24b5a4ebb8add080009, got deb7967d25c42247d2a39edf1e311cd0
+#    Time: 266 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 189
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 266 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 192
+# ** Error: Test #1 Key generated failed: expected 6d616868025158583261686802515858, got 68656c6c6f3030303030303030303030
+#    Time: 296 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 206
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 296 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 209
+add wave -position insertpoint  \
+sim:/tb_GenRoundKeys/DUT/cur_ff_d \
+sim:/tb_GenRoundKeys/DUT/cur_ff_q \
+sim:/tb_GenRoundKeys/DUT/round_ct
+restart
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading source_work/.tb_GenRoundKeys
+# Loading source_work/.GenRoundKeys
+# Loading source_work/.SBox
+run 2000 ns
+# ** Error: Test #1 Key generated failed: expected 6d616868025158583261686802515858, got 62636363626363636263636362636363
+#    Time: 136 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 66
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 136 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 69
+# ** Error: Test #1 Key generated failed: expected be0b021fbc5a5a478e3b322f8c6a6a77, got 37313193f3f7f75537313193f3f7f754
+#    Time: 146 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 80
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 146 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 83
+# ** Error: Test #1 Key generated failed: expected b809f77b0453ad3c8a689f130602f564, got 425cd141a5b33febcbd15ccc2c3eb264
+#    Time: 156 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 94
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 156 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 97
+# ** Error: Test #1 Key generated failed: expected c7efb414c3bc192849d4863b4fd6735f got 7036d3dc3b50ac0bacf21593f48f7158
+#    Time: 166 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 107
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 166 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 110
+# ** Error: Test #1 Key generated failed: expected 21607b90e2dc62b8ab08e483e4de97dc, got f2e2b88f8443e098dda7cbbf34b92906
+#    Time: 176 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 120
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 176 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 123
+# ** Error: Test #1 Key generated failed: expected 1ce8fdf9fe349f41553c7bc2b1e2ec1e, got 8c2970a284aeb1933fe126ed569374ef
+#    Time: 186 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 133
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 186 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 136
+# ** Error: Test #1 Key generated failed: expected c4268f313a1210706f2e6bb2decc87ac, got 5d45e1cd541882eb2bdacf3186fc26db
+#    Time: 206 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 147
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 206 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 150
+# ** Error: Test #1 Key generated failed: expected 0f311e2c35230e5c5a0d65ee84c1e242, got 7c81999dd4b09c4b830502288efd4f90
+#    Time: 226 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 161
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 226 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 164
+# ** Error: Test #1 Key generated failed: expected 6ca93273598a3c2f038759c18746bb83, got d4d8e28a7db9da1d7bb3de4c6649410e
+#    Time: 246 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 175
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 246 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 178
+# ** Error: Test #1 Key generated failed: expected 0043de6459c9e24b5a4ebb8add080009, got deb7967d25c42247d2a39edf1e311cd0
+#    Time: 266 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 189
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 266 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 192
+# ** Error: Test #1 Key generated failed: expected 6d616868025158583261686802515858, got 68656c6c6f3030303030303030303030
+#    Time: 296 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 206
+# ** Info: Test #1 Original Key correct: expected 68656c6c6f3030303030303030303030, got 68656c6c6f3030303030303030303030
+#    Time: 296 ns  Scope: tb_GenRoundKeys File: source/tb_GenRoundKeys.sv Line: 209
+# End time: 21:42:42 on Apr 25,2018, Elapsed time: 0:04:30
+# Errors: 0, Warnings: 2

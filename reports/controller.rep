@@ -1,0 +1,109 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : controller
+Version: K-2015.06-SP1
+Date   : Fri Apr 27 06:23:30 2018
+****************************************
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+  Startpoint: state_reg[1]
+              (rising edge-triggered flip-flop)
+  Endpoint: restart_check
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  state_reg[1]/CLK (DFFSR)                 0.00       0.00 r
+  state_reg[1]/Q (DFFSR)                   0.79       0.79 f
+  U125/Y (INVX1)                           0.66       1.45 r
+  U121/Y (XOR2X1)                          0.39       1.84 f
+  U120/Y (XNOR2X1)                         0.28       2.12 f
+  U111/Y (NAND2X1)                         0.16       2.28 r
+  U110/Y (NOR2X1)                          0.08       2.36 f
+  restart_check (out)                      0.00       2.36 f
+  data arrival time                                   2.36
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+ 
+****************************************
+Report : area
+Design : controller
+Version: K-2015.06-SP1
+Date   : Fri Apr 27 06:23:30 2018
+****************************************
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+Number of ports:                           25
+Number of nets:                           130
+Number of cells:                          115
+Number of combinational cells:             95
+Number of sequential cells:                19
+Number of macros/black boxes:               0
+Number of buf/inv:                         18
+Number of references:                      15
+
+Combinational area:              25020.000000
+Buf/Inv area:                     2592.000000
+Noncombinational area:           14256.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                 39276.000000
+Total area:                 undefined
+1
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: There is no defined clock in the design. (PWR-80)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : controller
+Version: K-2015.06-SP1
+Date   : Fri Apr 27 06:23:30 2018
+****************************************
+
+
+Library(s) Used:
+
+    osu05_stdcells (File: /package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db)
+
+
+Operating Conditions: typical   Library: osu05_stdcells
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 5    
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+controller                                0.555    1.933   12.258    2.488 100.0
+  counter (flex_counter)               6.33e-03    0.524    6.224    0.530  21.3
+1

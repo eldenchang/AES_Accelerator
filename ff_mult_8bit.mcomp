@@ -1,0 +1,9 @@
+QuestaSim-64 vlog 10.3b Compiler 2014.05 May 29 2014
+Start time: 17:46:18 on Apr 26,2018
+vlog -sv -work mapped_work mapped/ff_mult_8bit.v 
+-- Compiling module ff_mult_8bit
+
+Top level modules:
+	ff_mult_8bit
+End time: 17:46:19 on Apr 26,2018, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0

@@ -1,0 +1,192 @@
+Synthesizing design: ff_add_8bit.sv
+dc_shell-t -x "source -echo do_mapping.tcl"
+                                        
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+                                        
+               Version K-2015.06-SP1 for linux64 - Jul 21, 2015 
+                                        
+                    Copyright (c) 1988 - 2015 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+# Step 1:  Read in the source file
+analyze -format sverilog -lib WORK { ff_add_8bit.sv}
+Running PRESTO HDLC
+Compiling source file ./source/ff_add_8bit.sv
+Presto compilation completed successfully.
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+Loading db file '/package/eda/synopsys/syn-K-2015.06-SP1/libraries/syn/dw_foundation.sldb'
+elaborate ff_add_8bit -lib WORK
+Loading db file '/package/eda/synopsys/syn-K-2015.06-SP1/libraries/syn/gtech.db'
+Loading db file '/package/eda/synopsys/syn-K-2015.06-SP1/libraries/syn/standard.sldb'
+  Loading link library 'osu05_stdcells'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'ff_add_8bit'.
+Information: Building the design 'ff_add' instantiated from design 'ff_add_8bit' with
+	the parameters "8". (HDL-193)
+Warning: Cannot find the design 'ff_add' in the library 'WORK'. (LBR-1)
+Warning: Design 'ff_add_8bit' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+uniquify
+Warning: Design 'ff_add_8bit' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+# Step 2: Set design constraints
+# Uncomment below to set timing, area, power, etc. constraints
+# set_max_delay <delay> -from "<input>" -to "<output>"
+# set_max_area <area>
+# set_max_total_power <power> mW
+# Step 3: Compile the design
+compile -map_effort medium
+Warning: Design 'ff_add_8bit' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | K-2015.06-DWBB_201506.1 |     *     |
+| Licensed DW Building Blocks        | K-2015.06-DWBB_201506.1 |           |
+============================================================================
+
+
+Information: There are 16 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'ff_add_8bit'
+Information: Building the design 'ff_add' instantiated from design 'ff_add_8bit' with
+	the parameters "8". (HDL-193)
+Warning: Cannot find the design 'ff_add' in the library 'WORK'. (LBR-1)
+Warning: Unable to resolve reference 'ff_add' in 'ff_add_8bit'. (LINK-5)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Design 'ff_add_8bit' has no optimization constraints set. (OPT-108)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+    0:00:00       0.0      0.00       0.0       0.0                          
+Loading db file '/package/eda/cells/OSU/v2.7/synopsys/lib/ami05/osu05_stdcells.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+# Step 4: Output reports
+report_timing -path full -delay max -max_paths 1 -nworst 1 > reports/ff_add_8bit.rep
+report_area >> reports/ff_add_8bit.rep
+report_power -hier >> reports/ff_add_8bit.rep
+# Step 5: Output final VHDL and Verilog files
+write_file -format verilog -hierarchy -output "mapped/ff_add_8bit.v"
+Warning: Design 'ff_add_8bit' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Writing verilog file '/home/ecegrid/a/mg135/ece337/project/mapped/ff_add_8bit.v'.
+echo "\nScript Done\n"
+
+Script Done
+
+echo "\nChecking Design\n"
+
+Checking Design
+
+check_design
+Warning: Design 'ff_add_8bit' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06-SP1
+Date:        Thu Apr 26 17:46:31 2018
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Multiply driven inputs (LINT-6)                                16
+--------------------------------------------------------------------------------
+
+Warning: In design 'ff_add_8bit', input port 'add1[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add1[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add1[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add1[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add1[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add1[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add1[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add1[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add2[7]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add2[6]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add2[5]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add2[4]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add2[3]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add2[2]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add2[1]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+Warning: In design 'ff_add_8bit', input port 'add2[0]' drives wired logic; the port direction may have been specified incorrectly. (LINT-6)
+quit
+
+Thank you...
+Done
+
+

@@ -3,11 +3,11 @@ module MixColumns
 	input wire clk,
 	input wire n_rst,
 	input wire enable,
-	input wire [131:0] data_in,
-	output wire [131:0] data_out
+	input wire [127:0] data_in,
+	output wire [127:0] data_out
 );
 
-reg [131:0] ff_d, ff_q; 
+reg [127:0] ff_d, ff_q; 
 reg [3:0] i, j, m, n;
 genvar k, l;
 reg [3:0] [3:0] [7:0] array;
@@ -15,10 +15,8 @@ reg [3:0] [3:0] [7:0] out_array;
 
 reg [3:0] [3:0] [7:0] mult1, mult2, mult3, mult4;
 reg [3:0] [3:0] [7:0] add1, add2;
-reg [3:0] header;
 
-assign header = data_in[131:128];
-assign data_out = (ff_q[131:128] == 0) ? '0 : ff_q;
+assign data_out = ff_q;
 
 reg [3:0] [3:0] [7:0] matrix; 
 
@@ -81,7 +79,7 @@ endgenerate
 always_comb
 begin: OUTPUT_LOGIC
 	
-	if (header != 10)
+	if (enable)
 	begin	
 		for (m = 0; m <= 3; m++)
 		begin
@@ -91,14 +89,6 @@ begin: OUTPUT_LOGIC
 			end
 		end
 
-		if (enable)
-		begin
-			ff_d[131:128] = header; //add the header back onto the data
-		end
-		else
-		begin
-			ff_d[131:128] = ff_q[131:128];
-		end
 	end
 	else
 	begin

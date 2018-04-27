@@ -1,84 +1,25 @@
 module InvSubstitute
 (
-	input wire clk,
-	input wire n_rst,
-	input wire load, 
-	input wire [131:0] data_in,
-	output wire [131:0] data_out
+	input wire [127:0] data_in,
+	output wire [127:0] data_out
 );
 
-reg [99:0] input_d, input_q; 
-reg [3:0] header; 
-reg [7:0] input1, input2, input3, input4; 
-reg [7:0] output1, output2, output3, output4; 
-reg [31:0] sr_input;
-reg [127:0] sr_output; 
-reg rollover_flag;
+InvSBox SBox1(.data_in(data_in[127:120]), .data_out(data_out[127:120]));
+InvSBox SBox2(.data_in(data_in[119:112]), .data_out(data_out[119:112]));
+InvSBox SBox3(.data_in(data_in[111:104]), .data_out(data_out[111:104]));
+InvSBox SBox4(.data_in(data_in[103:96]), .data_out(data_out[103:96]));
+InvSBox SBox5(.data_in(data_in[95:88]), .data_out(data_out[95:88]));
+InvSBox SBox6(.data_in(data_in[87:80]), .data_out(data_out[87:80]));
+InvSBox SBox7(.data_in(data_in[79:72]), .data_out(data_out[79:72]));
+InvSBox SBox8(.data_in(data_in[71:64]), .data_out(data_out[71:64]));
+InvSBox SBox9(.data_in(data_in[63:56]), .data_out(data_out[63:56]));
+InvSBox SBox10(.data_in(data_in[55:48]), .data_out(data_out[55:48]));
+InvSBox SBox11(.data_in(data_in[47:40]), .data_out(data_out[47:40]));
+InvSBox SBox12(.data_in(data_in[39:32]), .data_out(data_out[39:32]));
+InvSBox SBox13(.data_in(data_in[31:24]), .data_out(data_out[31:24]));
+InvSBox SBox14(.data_in(data_in[23:16]), .data_out(data_out[23:16]));
+InvSBox SBox15(.data_in(data_in[15:8]), .data_out(data_out[15:8]));
+InvSBox SBox16(.data_in(data_in[7:0]), .data_out(data_out[7:0]));
 
-assign header = input_q[99:96];
-assign data_out = (header == 0 || load == 0) ? '0 : {header, sr_output};
-
-flex_counter #(3) Counter(.clk(clk), .n_rst(n_rst), .count_enable(load | ~rollover_flag), .rollover_val(3'd4), .rollover_flag(rollover_flag));
-InvSBox SBox1(.data_in(input1), .data_out(output1));
-InvSBox SBox2(.data_in(input2), .data_out(output2));
-InvSBox SBox3(.data_in(input3), .data_out(output3));
-InvSBox SBox4(.data_in(input4), .data_out(output4));
-flexbyte_stp_sr #(1, 4, 16) SR(.clk(clk), .n_rst(n_rst), .shift_enable(load | ~rollover_flag), .data_in(sr_input), .data_out(sr_output));
-
-always_ff @(posedge clk, negedge n_rst)
-begin: LOAD_FF
-	if (n_rst == 0)
-	begin
-		input_q <= '0;
-	end
-	else
-	begin
-		if (load == 1)
-		begin
-			input_q[95:0] <= data_in[95:0];
-			input_q[99:96] <= data_in[131:128];
-		end
-		else
-		begin
-			input_q <= input_d;
-		end
-	end
-end
-
-always_comb
-begin: LOAD_FF_D
-	if (~rollover_flag)
-	begin
-		input_d[99:96] = input_q[99:96];
-		input_d[95:0] = input_q[95:0] << 32;
-	end
-	else
-	begin
-		input_d = input_q;
-	end
-end
-
-always_comb
-begin: SBOX_INPUT
-	if (load)
-	begin
-		input1 = data_in[127:120];
-		input2 = data_in[119:112];
-		input3 = data_in[111:104];
-		input4 = data_in[103:96];
-	end
-	else
-	begin
-		input1 = input_q[95:88];
-		input2 = input_q[87:80];
-		input3 = input_q[79:72];
-		input4 = input_q[71:64];
-	end
-end
-
-always_comb
-begin: SR_CONCAT
-	sr_input = {output1, output2, output3, output4};
-end
 
 endmodule
