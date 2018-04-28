@@ -38,7 +38,7 @@ module ahb_master_q
 	//reg [31:0] n_out, n_hwdata, n_haddr;
 	//reg [31:0] n_hwdata, n_haddr;
 	//reg [31:0] n_haddr;
-	reg [1:0] count;
+	reg [2:0] count;
 	reg [2:0] n_count;
 	reg [31:0] check, n_check;
 	reg next_end;
