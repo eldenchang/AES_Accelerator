@@ -7,13 +7,13 @@ module gen_keys(
 	output reg [127:0] cur_key, //output to addRoundKey module
 	output reg done
 );
-reg [1407:0] key_sch,key_sch_storage;
+reg [1279:0] key_sch,key_sch_storage;
 reg [3:0] round;
-reg [127:0] temp_key;
-reg key_load,my_reset;
+reg [127:0] temp_key, orig_key;
+reg key_load, my_reset;
 
-temp theActualGenKeys(.clk(clk), .n_rst(my_reset), .key_load(key_load), .rx_key(rx_key), .cur_round(round), .cur_key(temp_key));
-	typedef enum bit [3:0] {IDLE,LOAD,R0,R1,R2,R3,R4,R5,R6,R7,R8,R9,R10,DONE} stateType;
+temp theActualGenKeys(.clk(clk), .n_rst(n_rst & my_reset), .key_load(key_load), .rx_key(rx_key), .cur_round(round), .cur_key(temp_key), .orig_key(orig_key));
+	typedef enum bit [3:0] {IDLE,RESET,LOAD,R0,R1,R2,R3,R4,R5,R6,R7,R8,R9,R10,DONE} stateType;
 
 	stateType state;
 	stateType n_state;
@@ -45,7 +45,8 @@ temp theActualGenKeys(.clk(clk), .n_rst(my_reset), .key_load(key_load), .rx_key(
 	always_comb begin
 		n_state = state;
 		case(state)
-			IDLE: n_state = start_doing ? LOAD : IDLE;
+			IDLE: n_state = start_doing ? RESET : IDLE;
+			RESET: n_state = LOAD;
 			LOAD: n_state = R0;
 			R0: n_state = R1;
 			R1: n_state = R2;
@@ -65,12 +66,15 @@ temp theActualGenKeys(.clk(clk), .n_rst(my_reset), .key_load(key_load), .rx_key(
 		key_load = 0;
 		round = 0;
 		done = 0;
-		my_reset = 1;
+		my_reset  = 1;
 		key_sch = key_sch_storage;
 		case(state)
 			IDLE: 
+				begin 
+				end
+			RESET:
 				begin
-					my_reset = 0; 
+					my_reset = 0;
 				end
 			LOAD: 
 				begin
@@ -83,7 +87,6 @@ temp theActualGenKeys(.clk(clk), .n_rst(my_reset), .key_load(key_load), .rx_key(
 			R1: 
 				begin 
 					round = 1;
-					key_sch[1407:1280] = temp_key;
 				end
 			R2: 
 				begin 
@@ -138,9 +141,9 @@ temp theActualGenKeys(.clk(clk), .n_rst(my_reset), .key_load(key_load), .rx_key(
 		endcase // state
 	end
 	always_comb begin
-		cur_key = key_sch[1407:1280];
+		cur_key = orig_key;
 		case(cur_round)
-			4'd0: cur_key = key_sch_storage[1407:1280];
+			4'd0: cur_key = orig_key;
 			4'd1: cur_key = key_sch_storage[1279:1152];
 			4'd2: cur_key = key_sch_storage[1151:1024];
 			4'd3: cur_key = key_sch_storage[1023:896];
