@@ -28,8 +28,7 @@ begin: CREATE_ARRAY
 	{8'd1, 8'd3, 8'd2, 8'd1},
 	{8'd1, 8'd1, 8'd3, 8'd2}
 	};
-	if (enable)
-	begin
+
 		for (i = 0; i <= 3; i++)
 		begin
 			for (j = 0; j <= 3; j++)
@@ -37,11 +36,7 @@ begin: CREATE_ARRAY
 				array[j][i] = data_in[i * 32 + j * 8 +: 8]; //assign data vertically in the array. +: notation is a workaround for a compiler error.
 			end
 		end
-	end
-	else
-	begin
-		array = array;
-	end
+
 end
 
 always_ff @(posedge clk, negedge n_rst)
@@ -52,7 +47,10 @@ begin: OUTPUT_FF
 	end
 	else
 	begin
+		if (enable)
 		ff_q <= ff_d;
+		else
+		ff_q <= data_in;
 	end
 end
 
@@ -79,8 +77,7 @@ endgenerate
 always_comb
 begin: OUTPUT_LOGIC
 	
-	if (enable)
-	begin	
+
 		for (m = 0; m <= 3; m++)
 		begin
 			for (n = 0; n <= 3; n++)
@@ -89,11 +86,7 @@ begin: OUTPUT_LOGIC
 			end
 		end
 
-	end
-	else
-	begin
-		ff_d = data_in;
-	end
+
 end
 
 endmodule 

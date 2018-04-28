@@ -28,8 +28,7 @@ begin: CREATE_ARRAY
  	{8'hd, 8'hb, 8'he, 8'h9},
  	{8'h9, 8'hd, 8'hb, 8'he}
 	};
-	if (enable)
-	begin
+
 		for (i = 0; i <= 3; i++)
 		begin
 			for (j = 0; j <= 3; j++)
@@ -37,11 +36,7 @@ begin: CREATE_ARRAY
 				array[j][i] = data_in[i * 32 + j * 8 +: 8]; //assign data vertically in the array. +: notation is a workaround for a compiler error.
 			end
 		end
-	end
-	else
-	begin
-		array = array;
-	end
+	
 end
 
 always_ff @(posedge clk, negedge n_rst)
@@ -52,7 +47,10 @@ begin: OUTPUT_FF
 	end
 	else
 	begin
-		ff_q <= ff_d;
+		if (enable)
+			ff_q <= ff_d;
+		else
+			ff_q <= data_in;
 	end
 end
 
